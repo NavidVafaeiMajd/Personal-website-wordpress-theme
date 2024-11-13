@@ -299,6 +299,8 @@ footer{
   z-index: 15;
   position: relative;
   margin-top: 45px;
+  display: flex;
+  justify-content: center;
 }
 footer::before{
   content: "";
