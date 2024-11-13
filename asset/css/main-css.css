@@ -1,0 +1,313 @@
+/*  woff font format */
+@font-face {
+    font-family: myFirstFont;
+    src: url('../fonts/yekan/woff/iranyekanwebregularfanum.woff') format('woff');
+    font-weight: 500;
+  }
+  @font-face {
+    font-family: myFirstFont;
+    src: url('../fonts/yekan/woff/iranyekanwebthinfanum.woff') format('woff');
+    font-weight: 100;
+  }
+  @font-face {
+    font-family: myFirstFont;
+    src: url('../fonts/yekan/woff/iranyekanwebmediumfanum.woff') format('woff');
+    font-weight: 700;
+  }
+  @font-face {
+    font-family: myFirstFont;
+    src: url('../fonts/yekan/woff/iranyekanweblightfanum.woff') format('woff');
+    font-weight: 300;
+  }
+  @font-face {
+    font-family: myFirstFont;
+    src: url('../fonts/yekan/woff/iranyekanwebboldfanum.woff') format('woff');
+    font-weight: bold;
+  }
+  @font-face {
+    font-family: myFirstFont;
+    src: url('../fonts/yekan/woff/iranyekanwebblackfanum.woff') format('woff');
+    font-weight: bolder;
+  }
+  @font-face {
+    font-family: myFirstFont;
+    src: url('../fonts/yekan/woff/iranyekanwebextrablackfanum.woff') format('woff');
+    font-weight: 900;
+  }
+  @font-face {
+    font-family: myFirstFont;
+    src: url('../fonts/yekan/woff/iranyekanwebextraboldfanum.woff') format('woff');
+    font-weight: 800;
+  }
+  
+
+  /*  ttf font format */
+
+  @font-face {
+    font-family: myFirstFont;
+    src: url('../fonts/yekan/eot/iranyekanwebregularfanum.ttf') format('ttf');
+    font-weight: 500;
+  }
+  @font-face {
+    font-family: myFirstFont;
+    src: url('../fonts/yekan/ttf/iranyekanwebthinfanum.ttf') format('ttf');
+    font-weight: 100;
+  }
+  @font-face {
+    font-family: myFirstFont;
+    src: url('../fonts/yekan/ttf/iranyekanwebmediumfanum.ttf') format('ttf');
+    font-weight: 700;
+  }
+  @font-face {
+    font-family: myFirstFont;
+    src: url('../fonts/yekan/ttf/iranyekanweblightfanum.ttf') format('ttf');
+    font-weight: 300;
+  }
+  @font-face {
+    font-family: myFirstFont;
+    src: url('../fonts/yekan/ttf/iranyekanwebboldfanum.ttf') format('ttf');
+    font-weight: bold;
+  }
+  @font-face {
+    font-family: myFirstFont;
+    src: url('../fonts/yekan/ttf/iranyekanwebblackfanum.ttf') format('ttf');
+    font-weight: bolder;
+  }
+  @font-face {
+    font-family: myFirstFont;
+    src: url('../fonts/yekan/ttf/iranyekanwebextrablackfanum.ttf') format('ttf');
+    font-weight: 900;
+  }
+  @font-face {
+    font-family: myFirstFont;
+    src: url('../fonts/yekan/ttf/iranyekanwebextraboldfanum.ttf') format('ttf');
+    font-weight: 800;
+  }
+
+
+/*  eot font format */
+
+
+  @font-face {
+    font-family: myFirstFont;
+    src: url('../fonts/yekan/eot/iranyekanwebregularfanum.eot') format('eot');
+    font-weight: 500;
+  }
+  @font-face {
+    font-family: myFirstFont;
+    src: url('../fonts/yekan/eot/iranyekanwebthinfanum.eot') format('eot');
+    font-weight: 100;
+  }
+  @font-face {
+    font-family: myFirstFont;
+    src: url('../fonts/yekan/eot/iranyekanwebmediumfanum.eot') format('eot');
+    font-weight: 700;
+  }
+  @font-face {
+    font-family: myFirstFont;
+    src: url('../fonts/yekan/eot/iranyekanweblightfanum.eot') format('eot');
+    font-weight: 300;
+  }
+  @font-face {
+    font-family: myFirstFont;
+    src: url('../fonts/yekan/eot/iranyekanwebboldfanum.eot') format('eot');
+    font-weight: bold;
+  }
+  @font-face {
+    font-family: myFirstFont;
+    src: url('../fonts/yekan/eot/iranyekanwebblackfanum.eot') format('eot');
+    font-weight: bolder;
+  }
+  @font-face {
+    font-family: myFirstFont;
+    src: url('../fonts/yekan/eot/iranyekanwebextrablackfanum.eot') format('eot');
+    font-weight: 900;
+  }
+  @font-face {
+    font-family: myFirstFont;
+    src: url('../fonts/yekan/eot/iranyekanwebextraboldfanum.eot') format('eot');
+    font-weight: 800;
+  }
+  :root {
+    --main-color: #17cd6d;
+    --text-color: #526772;
+    --secondery-color : #7ca1aa;
+    --menu-color:#768aad;
+    --border-raduis:17px;
+    --border-color:#d1d7e7;
+    --shadow-color-a: #17cd6d1f;
+    --shadow-color-b: #5d80b51a;
+    --shadow-color-c: #7b83a314;
+  }
+*{
+    font-family: myFirstFont !important;
+    direction: rtl;
+    font-weight: 500;
+    color: var(--text-color);
+    font-size: 14px;
+    box-sizing: border-box;
+}
+hr{
+  margin: 0;
+}
+a {
+  text-decoration: none;
+  color: var(--menu-color);
+  transition: .3s;
+}
+
+a:hover {
+  color: var(--main-color);
+}
+h1,h2,h3,h4,h5,h6{
+  color: var(--main-color);
+  font-weight: 900;
+  margin-bottom: 20px;
+}
+body{
+  background-color: #F0F2F5;
+}
+button {
+  background: var(--main-color);
+  padding: 8px 22px;
+  margin-top: 10px;
+  border: 1px solid var(--main-color);
+  color: white;
+  border-radius: var(--border-raduis);
+  box-shadow: 0px 16px 30px 0px #17cd6d94;
+  transition: .3s all ease;
+  font-weight: 700;
+}
+
+button:hover {
+  background: #f0f8ff00;
+  color: var(--main-color);
+}
+button#secondary-btn {
+  background: white;
+  color: var(--secondery-color);
+  border-color: var(--secondery-color);
+  box-shadow: 0px 16px 30px 0px #7ca1aa91;
+  padding: 8px 22px;
+}
+
+button#secondary-btn:hover {
+  background: var(--secondery-color);
+  color: white;
+}
+
+
+
+
+
+
+/* header css */
+header {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  margin-top: 10px;
+  z-index: 1;
+}
+div#header-content{
+  background: rgba(255, 255, 255, 0.521);
+  margin: 0px auto;
+  backdrop-filter: blur(17px);
+  display: flex;
+  width: 90%;
+  padding: 13px;
+  z-index: 3;
+  border-radius: 15px;
+  box-shadow: 0 10px 9px var(--shadow-color-c);
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid var(--border-color);
+
+}
+
+
+
+div#header-doted span{
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  margin: 0 2px;
+  border-radius: 100px;
+}
+span#header-doted-red {
+  background-color: #d33753;
+}
+
+span#header-doted-yellow {
+  background-color: #e7ce1c;
+}
+
+span#header-doted-green {
+  background-color: #17cd6d;
+}
+
+
+
+
+#header-menu > ul > li a{
+  display: flex;
+  align-items: center;
+}
+#header-menu > ul > li a::before{
+  content: "";
+  display: inline-block;
+  width: 13px;
+  height: 13px;
+  background: var(--menu-color);
+  transition: 0.3s;
+  opacity: 0.2;
+  border-radius: 4px;
+  margin-left: 5px;
+  box-shadow: 0 0 0 transparent;
+}
+#header-menu > ul > li a:hover::before{
+  background: var(--main-color) !important;
+  opacity: 1 !important;
+}
+
+div#header-menu ul {
+  display: flex;
+  list-style: none;
+  margin: 0;
+}
+div#header-menu ul li{
+  padding-left: 21px;
+  margin: 0 11px;
+}
+div#header-menu ul li:not(:last-child){
+  border-left: 1px solid var(--menu-color);
+}
+
+
+div#header-login-btn button {
+  margin: 0;
+}
+
+
+
+
+/* footer css */
+footer{
+  background-color: white;
+  padding: 0 10px 10px 10px;
+  box-shadow: 0 -2px 33px var(--shadow-color-b);
+  z-index: 15;
+  position: relative;
+  margin-top: 45px;
+}
+footer::before{
+  content: "";
+  width: 70%;
+  height: 8px;
+  display: block;
+  transform: translate(0,-8px);
+  position: absolute;
+  border-radius: 10px 0 0 0;
+  right: 0;
+  background-color: var(--main-color);
+}

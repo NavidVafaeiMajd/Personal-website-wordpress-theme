@@ -1,0 +1,218 @@
+@import url(./main-css.css);
+
+
+/* first section styles*/
+
+
+
+.first-sec-bg{
+    height: 95vh;
+    background-image: url(../img/rb_21973.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.first-sec-content {
+    border-right: 3px solid var(--main-color);
+    border-left: 3px solid var(--main-color);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 90% !important;
+    margin-top: 50px;
+}
+.first-sec-content-box h1 {
+    color: var(--secondery-color);
+    margin-bottom: 40px;
+}
+
+.first-sec-content-box h1 b {
+    color: var(--main-color);
+    font-size: 2.7rem;
+}
+
+.first-sec-content-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.first-sec-content-boldName {
+    position: absolute;
+    font-weight: 900;
+    font-size: 12rem;
+    text-indent: 0px;
+    color: #d4dfe3;
+    z-index: -1;
+}
+
+.first-sec-content-boldName.en {
+    top: 50px;
+    left: 0;
+}
+
+.first-sec-content-boldName.fa {
+    right: 0;
+    bottom: 0px;
+}
+
+
+
+.sochial-icon{
+    display: flex;
+    justify-content: center;
+}
+
+.sochial-icon a svg {
+    fill: var(--main-color);
+    width: 30px !important;
+    border-style: solid;
+    border-width: 1px 1px 1px 1px;
+    border-color: #D0D8DDE0;
+    width: 40px !important;
+    height: 40px;
+    box-shadow: 0px 16px 30px 0px rgba(23, 205, 109.00000000000001, 0.34);
+    background-color: white;
+    padding: 5px;
+    border-radius: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 10px;
+    transition: .3s;
+}
+.sochial-icon a svg:hover{
+    fill: white;
+    background-color: var(--main-color);
+}
+
+
+
+/* secouns section styles*/
+
+
+.secound-sec-content-right {
+    padding-right: 15px;
+    border-right: 3px solid var(--main-color);
+}
+
+/* third dection style */
+
+.special-title h1::before{
+    content: "";
+    background: #17cd6d;
+    display: block;
+    width: 20%;
+    height: 2px;
+    margin: 11px auto;
+}
+
+.third-sec-service-item{
+    background-color: #ffffff;
+    padding: 11px;
+    display: flex;
+    box-shadow: 0 2px 33px #5d80b51a;
+    border-radius: 22px;
+    flex-direction: column;
+    justify-content: center;
+    transition: 0.3s;
+    border-style: solid;
+    border-width: 1px 1px 1px 1px;
+    border-color: #758F9E57;
+    margin: 10px;
+}
+.third-sec-service-item:hover{
+    border-color: var(--main-color);
+}
+
+.third-sec-service-item-title h4{
+    text-align: center;
+    font-size: 21px;
+    width: 100%;
+    color: var(--main-color);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: row-reverse;
+}
+.third-sec-service-item-title h4::before{
+    content: "";
+    display: inline-block;
+    width: 50px;
+    left: -11px;
+    position: relative;
+    height: 10px;
+    background: var(--main-color);
+    border-radius: 0 100px 100px 0;
+}
+
+/* forth section style*/
+.last-blog-cart-content{
+    background-color: white;
+    padding: 8px;
+    padding-bottom: 4px;
+    box-shadow: 0 2px 33px var(--shadow-color-b);
+    border-radius: 22px;
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+    justify-content: space-between;
+    border: 1px solid var(--border-color);
+    transition: .3s;
+}
+.last-blog-cart-content:hover{
+    transform: scale(1.02);
+}
+.last-blog-cart-img img{
+    max-width: 100%;
+    height: 183px;
+    position: relative;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 22px;
+}
+.last-blog-cart-title{
+    color: var(--text-color);
+    margin: 11px 0;
+    display: block;
+    width: 100%;
+    font-size: 18px;
+}
+.last-blog-cart-info{
+    display: flex;
+    padding: 5px 2px;
+    align-items: center;
+    justify-content: space-between;
+}
+.last-blog-cart-info span{
+    color: #919ca9;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+}
+.last-blog-cart-info span svg path{
+    margin-left: 5px;
+    stroke: #919ca9;
+}
+.last-blog-cart-btn{
+    color: var(--text-color);
+    display: block;
+    border-radius: 15px;
+    text-align: center;
+    font-size: 15px;
+    transition: 0.3s;
+    padding: 9px;
+    margin: 4px 0;
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
