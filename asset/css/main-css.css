@@ -138,6 +138,9 @@
     --shadow-color-a: #17cd6d1f;
     --shadow-color-b: #5d80b51a;
     --shadow-color-c: #7b83a314;
+    --body-color: #f0f2f5;
+    --box-color: #ffffff;
+    --menu-mobile-color: #ffffffdb;
   }
 *{
     font-family: myFirstFont !important;
@@ -147,6 +150,9 @@
     font-size: 14px;
     box-sizing: border-box;
 }
+main{
+  padding-top: 95px;
+}
 hr{
   margin: 0;
 }
@@ -155,7 +161,9 @@ a {
   color: var(--menu-color);
   transition: .3s;
 }
-
+b{
+  color: var(--main-color);
+}
 a:hover {
   color: var(--main-color);
 }
@@ -166,6 +174,9 @@ h1,h2,h3,h4,h5,h6{
 }
 body{
   background-color: #F0F2F5;
+}
+svg path{
+  stroke: var(--text-color) !important;
 }
 button {
   background: var(--main-color);
@@ -299,6 +310,8 @@ footer{
   z-index: 15;
   position: relative;
   margin-top: 45px;
+  display: flex;
+  justify-content: center;
 }
 footer::before{
   content: "";
@@ -311,3 +324,91 @@ footer::before{
   right: 0;
   background-color: var(--main-color);
 }
+
+/*breadcrump*/
+nav[aria-label="breadcrumb"]{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 25px 10px !important;
+  padding-top: 30px !important;
+}
+.btn-previous-page {
+  background-color: var(--tp-box-color);
+  border: 1px solid var(--tp-border-color);
+  padding: 10px;
+  border-radius: 10px;
+}
+
+
+/* post cart style*/
+.last-blog-cart-content{
+  background-color: white;
+  padding: 8px;
+  padding-bottom: 4px;
+  box-shadow: 0 2px 33px var(--shadow-color-b);
+  border-radius: 22px;
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  justify-content: space-between;
+  border: 1px solid var(--border-color);
+  transition: .3s;
+}
+.last-blog-cart-content:hover{
+  transform: scale(1.02);
+}
+.last-blog-cart-img img{
+  max-width: 100%;
+  height: 183px;
+  position: relative;
+  width: 100%;
+  object-fit: cover;
+  border-radius: 22px;
+}
+.last-blog-cart-title{
+  color: var(--text-color);
+  margin: 11px 0;
+  display: block;
+  width: 100%;
+  font-size: 18px;
+}
+.last-blog-cart-info{
+  display: flex;
+  padding: 5px 2px;
+  align-items: center;
+  justify-content: space-between;
+}
+.last-blog-cart-info span{
+  color: #919ca9;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+}
+.last-blog-cart-info span svg path{
+  margin-left: 5px;
+  stroke: #919ca9;
+}
+.last-blog-cart-btn{
+  color: var(--text-color);
+  display: block;
+  border-radius: 15px;
+  text-align: center;
+  font-size: 15px;
+  transition: 0.3s;
+  padding: 9px;
+  margin: 4px 0;
+
+}
+
+
+
+
+
+
+
+
+
+
+
+

@@ -19,7 +19,6 @@
     align-items: center;
     justify-content: center;
     min-height: 90% !important;
-    margin-top: 50px;
 }
 .first-sec-content-box h1 {
     color: var(--secondery-color);
@@ -145,74 +144,4 @@
     border-radius: 0 100px 100px 0;
 }
 
-/* forth section style*/
-.last-blog-cart-content{
-    background-color: white;
-    padding: 8px;
-    padding-bottom: 4px;
-    box-shadow: 0 2px 33px var(--shadow-color-b);
-    border-radius: 22px;
-    display: flex;
-    height: 100%;
-    flex-direction: column;
-    justify-content: space-between;
-    border: 1px solid var(--border-color);
-    transition: .3s;
-}
-.last-blog-cart-content:hover{
-    transform: scale(1.02);
-}
-.last-blog-cart-img img{
-    max-width: 100%;
-    height: 183px;
-    position: relative;
-    width: 100%;
-    object-fit: cover;
-    border-radius: 22px;
-}
-.last-blog-cart-title{
-    color: var(--text-color);
-    margin: 11px 0;
-    display: block;
-    width: 100%;
-    font-size: 18px;
-}
-.last-blog-cart-info{
-    display: flex;
-    padding: 5px 2px;
-    align-items: center;
-    justify-content: space-between;
-}
-.last-blog-cart-info span{
-    color: #919ca9;
-    font-size: 14px;
-    display: flex;
-    align-items: center;
-}
-.last-blog-cart-info span svg path{
-    margin-left: 5px;
-    stroke: #919ca9;
-}
-.last-blog-cart-btn{
-    color: var(--text-color);
-    display: block;
-    border-radius: 15px;
-    text-align: center;
-    font-size: 15px;
-    transition: 0.3s;
-    padding: 9px;
-    margin: 4px 0;
-
-}
-
-
-
-
-
-
-
-
-
-
-
-
+/* forth section style is in nain css for global carts*/

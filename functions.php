@@ -9,4 +9,12 @@ function my_them_register_menu(){
         'mobile' => 'منو موبایل'
     ));
 }
+
+
+add_action('after_setup_theme' , 'widget_setup_for_theme');
+
+function widget_setup_for_theme(){
+    add_theme_support('widgets');
+}
+
 ?>

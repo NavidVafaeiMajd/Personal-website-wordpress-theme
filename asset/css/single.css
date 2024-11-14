@@ -1,0 +1,82 @@
+@import url(./main-css.css);
+
+
+
+
+/* build header of blog*/
+.blog-content-header-img{
+    width: 100%;
+    height: 49vh;
+    text-align: center;
+}
+.blog-content-header-img img{
+    width: 100%;
+    border-radius: 16px;
+    height: 100%;
+    object-fit: cover;
+}
+.blog-content-header-info{
+    width: 90%;
+    background: #ffffffdb;
+    border-radius: 22px;
+    display: flex;
+    padding: 25px;
+    transform: translate(0,-61px);
+    box-shadow: 0 10px 30px var(--shadow-color-c);
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+    backdrop-filter: blur(10px);
+    margin: auto;
+}
+.blog-content-header-info h4{
+    color: var(--text-color);
+}
+
+.blog-content-header-info-deatlis ul li svg{
+    width: 21px;
+    height: 21px;
+}
+.blog-content-header-info-deatlis{
+
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 8px;
+    padding-bottom: 8px;
+}
+.blog-content-header-info-deatlis ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    align-items: center;
+}
+.copy-link-head-det-blog{
+    padding: 5px;
+    font-size: 14px;
+    background: var(--box-color);
+    transition: 0.3s;
+    border-radius: 9px;
+    border: 1px solid var(--border-color);
+    box-shadow: 0 10px 30px var(--shadow-color-b);
+    color: var(--color-text);
+}
+.copy-link-head-det-blog:hover {
+    background: var(--main-color);
+    color: var(--body-color);
+    border-color: var(--main-color);
+}
+.copy-link-head-det-blog:hover svg path{
+    fill: var(--body-color) !important;
+    stroke: var(--body-color) !important;
+
+}
+
+/* build main text*/
+.text-blog-content p {
+    font-weight: bold;
+    line-height: 2rem;
+}
