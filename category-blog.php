@@ -19,7 +19,7 @@ $taxonomy = get_queried_object();
                 </a>
                 </li>
                 <li class="" aria-current="page">
-                    <?php echo  $taxonomy->name;?>
+                    بلاگ
                 </li>
             </ol>
             <button id="btn-previous-page" onclick="history.back();" class="btn-previous-page">
@@ -36,7 +36,7 @@ $taxonomy = get_queried_object();
         <div class="top-archive-blog-content">
             <div class="head-top-archive-blog-content flex-column flex-md-row">
                 <h1 class="title-blog">
-                <?php echo  $taxonomy->name;?> 
+                بلاگ 
                 </h1>
                 <!-- serach blog in posts  -->
                 <div class="search-blog-div">

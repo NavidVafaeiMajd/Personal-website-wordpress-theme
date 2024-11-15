@@ -13,14 +13,7 @@ $taxonomy = get_queried_object();
         
         <nav aria-label="breadcrumb" >
             <ol class="breadcrumb">
-                <li class="breadcrumb-item">
-                <a href="">
-                     خانه /  
-                </a>
-                </li>
-                <li class="" aria-current="page">
-                    <?php echo  $taxonomy->name;?>
-                </li>
+
             </ol>
             <button id="btn-previous-page" onclick="history.back();" class="btn-previous-page">
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
@@ -36,12 +29,13 @@ $taxonomy = get_queried_object();
         <div class="top-archive-blog-content">
             <div class="head-top-archive-blog-content flex-column flex-md-row">
                 <h1 class="title-blog">
-                <?php echo  $taxonomy->name;?> 
+                    جست و جو برای :
+                <?php echo  get_search_query();?> 
                 </h1>
                 <!-- serach blog in posts  -->
                 <div class="search-blog-div">
                     <form action="<?php echo get_home_url();?>" method="get">
-                        <input type="text" class="search-blog-input" placeholder="جست و جو..." name="s" id="">
+                        <input type="text" class="search-blog-input" value="<?php echo  get_search_query() ?>" placeholder="جست و جو..." name="s" id="">
                         <button type="submit" class="search-blog-btn">
                             <svg id="Huge-icon_interface_outline_search_01" data-name="Huge-icon/interface/outline/search 01" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
                                 <path id="Vector" d="M20.22,21.28A.75.75,0,1,0,21.28,20.22ZM19.28,18.22A.75.75,0,1,0,18.22,19.28ZM1.5,10.25A8.75,8.75,0,0,1,10.25,1.5V0A10.25,10.25,0,0,0,0,10.25ZM10.25,1.5A8.75,8.75,0,0,1,19,10.25h1.5A10.25,10.25,0,0,0,10.25,0ZM19,10.25A8.75,8.75,0,0,1,10.25,19v1.5A10.25,10.25,0,0,0,20.5,10.25ZM10.25,19A8.75,8.75,0,0,1,1.5,10.25H0A10.25,10.25,0,0,0,10.25,20.5Zm11.03,1.22-2-2L18.22,19.28l2,2Z" transform="translate(1.25 1.25)" fill="#28303f"></path>

@@ -64,3 +64,11 @@
 .ul-blog-content-headercategory-blog li {
     margin: 7px 12px;
 }
+
+/* we also use this style for search page beacuse there are same*/
+
+h1.title-search-result {color: var(--color-text);}
+
+h1.title-search-result b {
+    font-size: 2.5rem;
+}
