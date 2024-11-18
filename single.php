@@ -89,7 +89,7 @@ if(have_posts()){
         </div>
         <div class="text-blog-content">
             <?php
-            the_content();
+             the_content();
             ?>
         </div>
         <div class="text-blog-content-comment">

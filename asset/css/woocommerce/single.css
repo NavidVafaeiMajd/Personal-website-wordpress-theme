@@ -1,0 +1,103 @@
+@import url(../main-css.css);
+
+nav{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 25px 10px !important;
+    padding-top: 30px !important;
+}
+.woocommerce-notices-wrapper {
+    margin: 20px 0;
+    max-width: 100%;
+}
+.woocommerce  {
+    margin-bottom: 0;
+    position: relative;
+}
+.product {
+    background: var(--box-color);
+    padding: 10px;
+    border: 1px solid var(--border-color);
+    border-radius: 10px !important;
+    margin-bottom: 36px;
+    align-items: center;
+}
+img.wp-post-image {
+    border-radius: 10px;
+}
+.woocommerce #content div.product div.images, .woocommerce div.product div.images, .woocommerce-page #content div.product div.images, .woocommerce-page div.product div.images {
+    float: right;
+    width: 48%;
+}
+
+.woocommerce div.product div.images .flex-control-thumbs {
+    display: flex;
+    margin-top: 8px !important;
+    justify-content: baseline;
+    background: var(--body-color);
+    padding: 10px !important;
+    border-radius: 10px !important;
+}
+.woocommerce div.product div.images .flex-control-thumbs li {
+    width: 25% !important;
+    float: right;
+    margin: 0 7px !important;
+    list-style: none;
+}
+.woocommerce div.product div.images .flex-control-thumbs li img {
+    width: 137px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+span.woocommerce-Price-currencySymbol {
+    font-weight: initial;
+    margin-right: 7px;
+}
+
+span.woocommerce-Price-amount.amount bdi {
+    font-size: 1.5rem !important;
+    font-weight: inherit;
+    color: var(--main-color);
+    
+}
+.summary.entry-summary {
+    margin-right: 23px;
+    background: var(--body-color);
+    padding: 11px;
+    border-radius: 10px;
+    padding: 20px 11px;
+}
+.summary.entry-summary form.cart {
+    margin: 17px 0 !important;
+    border-top: 1px solid var(--border-color);
+    padding-top: 20px;
+    display: flex;
+    align-items: center;
+}
+.wc-tabs {
+    border-color: var(--border-color) !important;
+}
+.wc-tabs .active {
+    color: #fff !important;
+    background-color: var(--main-color) !important;
+    border-color: var(--main-color) !important;
+}
+.product_meta span {
+    display:  block !important;
+    margin-top: 10px;
+    
+}
+.woocommerce-message {
+    border-top-color: var(--main-color) !important;
+}
+
+.woocommerce-message::before {
+    color: var(--main-color) !important;
+}
+
+span.onsale {
+    background: var(--main-color) !important;
+}

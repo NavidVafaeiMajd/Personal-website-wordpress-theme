@@ -16,6 +16,8 @@ add_action('after_setup_theme' , 'widget_setup_for_theme');
 function widget_setup_for_theme(){
     add_theme_support('widgets');
     add_theme_support('post-thumbnails');
+
+
 }
 
 
@@ -76,4 +78,28 @@ function g2p($g_y, $g_m, $g_d)
 };
 
 define( 'WP_AUTO_UPDATE_CORE', false );
+
+//some change to single template
+function change_in_shop_loop(){
+    global $product;
+
+    // دریافت دسته‌بندی‌های محصول
+    $categories = wp_get_post_terms($product->get_id(), 'product_cat');
+
+    // نمایش دسته‌بندی‌ها
+    if (!empty($categories)) {
+        echo '<div class="product-categories"> <span> دسته بندی : </span>';
+        foreach ($categories as $category) {
+            $category_link = get_term_link($category); // لینک دسته‌بندی
+            if (!is_wp_error($category_link)) { // اطمینان از معتبر بودن لینک
+                echo '<a href="' . esc_url($category_link) . '" class="product-category">';
+                echo esc_html($category->name . '  '); // نمایش نام دسته‌بندی
+                echo '</a>';
+            }
+        }
+        echo '</div>';
+    }
+}; 
+add_action('woocommerce_shop_loop_item_title' , 'change_in_shop_loop') ;
+
 ?>
