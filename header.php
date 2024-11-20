@@ -45,4 +45,8 @@
                 </button>
             </div>
         </div>
+        <div class="cart-icon-btn">
+            <?php do_shortcode('[woo_cart_shortcode]')?>
+            
+        </div>
     </header>
