@@ -1,6 +1,9 @@
 <?php
 define('TD' , get_template_directory_uri());
 
+add_filter('use_block_editor_for_post', '__return_false');
+
+
 add_action('after_setup_theme' , 'my_them_register_menu');
 
 function my_them_register_menu(){
@@ -168,5 +171,85 @@ function custom_menu_items(){
 }
 add_filter('woocommerce_account_menu_items' , 'custom_menu_items');
 
+// create custom new post type
 
+add_action('init' , 'regidter_portfolio_post_type');
+function regidter_portfolio_post_type(){
+    
+    $labels = array(
+        'name' => 'نمونه کار',
+        'menu_name' => 'نمونه کار',
+        'add_new' => 'افزودن نمونه کار',
+        'add_new_item' => 'افزودن نمونه کار',
+        'new_item' =>'نمونه کار جدید',
+        'edit_item' => 'ویرایش نمونه کار' , 
+        'view_item' => 'مشاهده نمونه کار' ,
+        'all_items' => 'همه نمونه کار ها' , 
+        'search_items' => 'جست و جو نمونه کار ها ',
+        'not_found' => 'نمونه کاری یافت نشد'
+    );
+    
+    $args = array(
+        'labels' => $labels,
+        'public' => true,
+        'menu_icon' =>'dashicons-portfolio',
+        'supports' => array('title' , 'editor' , 'comments' , 'thumbnail' , 'author'),
+        'has_archive' => true,
+
+
+    );
+    register_post_type('portfolio' , $args);
+
+}
+
+//create taxanomy for portfolio
+add_action('init' , 'regidter_portfolio_post_type_taxanomy'); 
+function regidter_portfolio_post_type_taxanomy(){
+    $labels = array(
+        'name' => 'دسته بندی نمونه کار ها ' ,
+        'menu_name' => 'دسته بندی نمونه کار ها',
+        'add_new' => 'افزودن دسته بندی نمونه کار',
+        'add_new_item' => 'افزودن دسته بندی نمونه کار',
+        'new_item' =>'دسته بندی نمونه کار جدید',
+        'edit_item' => 'ویرایش دسته بندی نمونه کار' , 
+        'view_item' => 'مشاهده دسته بندی نمونه کار' ,
+        'all_items' => 'همه دسته بندی نمونه کار ها' , 
+        'search_items' => 'جست و جو دسته بندی نمونه کار ها ',
+        'not_found' => 'نمونه کاری یافت نشد'
+    );
+    $args = array(
+        'labels' => $labels,
+        'public' => true,
+        'hierarchical' => true,
+        'rewrite' => array('slug' => 'publisher')
+    );
+    register_taxonomy('portfoliocat' , 'portfolio' , $args);
+
+}
+
+//create meta box
+
+add_action('add_meta_boxes' , 'add_custom_meta_box');
+function add_custom_meta_box(){
+    add_meta_box('posts_meta_box' , 'اطلاعات مقاله' , 'post_meta_box_output' , 'post' );
+}
+
+function post_meta_box_output(){
+    $read_time_value = get_post_meta(get_the_ID(), 'read_time', true);
+    ?>
+    <label for="read_time">زمان مطالعه</label>
+    <input type="text" name="read_time" id="read_time" value="<?php echo $read_time_value;?>" >
+    <?php
+}
+
+add_action('save_post' , 'save_post_meta_box_values');
+function save_post_meta_box_values($post_id){
+    if(!current_user_can('edit_post' , $post_id)){
+        return;
+    }
+    if(isset($_POST['read_time'])){
+        $read_time_value= sanitize_text_field($_POST['read_time']);
+        update_post_meta($post_id , 'read_time', $read_time_value);
+    }
+}
 ?>

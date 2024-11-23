@@ -494,6 +494,9 @@ select.orderby {
   border-color: var(--border-color);
 }
 
+.woocommerce.columns-4 {
+  display: block;
+}
 /* cart styles */
 .woocommerce.wp-block-group.alignwide {
   display: block;
