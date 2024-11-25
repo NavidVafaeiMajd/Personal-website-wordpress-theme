@@ -193,7 +193,7 @@ function regidter_portfolio_post_type(){
         'labels' => $labels,
         'public' => true,
         'menu_icon' =>'dashicons-portfolio',
-        'supports' => array('title' , 'editor' , 'comments' , 'thumbnail' , 'author'),
+        'supports' => array('title' , 'editor' , 'comments' , 'thumbnail' , 'author' , 'gallery'),
         'has_archive' => true,
 
 
@@ -227,18 +227,25 @@ function regidter_portfolio_post_type_taxanomy(){
 
 }
 
-//create meta box
+//create meta box for more information in portfolio
 
 add_action('add_meta_boxes' , 'add_custom_meta_box');
 function add_custom_meta_box(){
-    add_meta_box('posts_meta_box' , 'اطلاعات مقاله' , 'post_meta_box_output' , 'post' );
+    add_meta_box('posts_meta_box' , 'اطلاعات صفحه نمونه کار ' , 'post_meta_box_output' , 'portfolio' );
 }
 
 function post_meta_box_output(){
-    $read_time_value = get_post_meta(get_the_ID(), 'read_time', true);
+    $time_do_value = get_post_meta(get_the_ID(), 'time_do', true);
+    $project_employer_value = get_post_meta(get_the_ID(), 'project_employer', true);
+    $location_value = get_post_meta(get_the_ID(), 'location', true);
+
     ?>
-    <label for="read_time">زمان مطالعه</label>
-    <input type="text" name="read_time" id="read_time" value="<?php echo $read_time_value;?>" >
+    <label for="time_do"> مدت زمان انجام پروژه </label>
+    <input type="text" name="time_do" id="time_do" value="<?php echo $time_do_value;?>" >
+    <label for="project_employer"> مدت زمان انجام پروژه </label>
+    <input type="text" name="project_employer" id="project_employer" value="<?php echo $project_employer_value;?>" >
+    <label for="location"> مدت زمان انجام پروژه </label>
+    <input type="text" name="location" id="location" value="<?php echo $location_value;?>" >
     <?php
 }
 
@@ -247,9 +254,17 @@ function save_post_meta_box_values($post_id){
     if(!current_user_can('edit_post' , $post_id)){
         return;
     }
-    if(isset($_POST['read_time'])){
-        $read_time_value= sanitize_text_field($_POST['read_time']);
-        update_post_meta($post_id , 'read_time', $read_time_value);
+    if(isset($_POST['time_do'])){
+        $time_do_value= sanitize_text_field($_POST['time_do']);
+        update_post_meta($post_id , 'time_do', $time_do_value);
+    }
+    if(isset($_POST['project_employer'])){
+        $project_employer_value= sanitize_text_field($_POST['project_employer']);
+        update_post_meta($post_id , 'project_employer', $project_employer_value);
+    }
+    if(isset($_POST['location'])){
+        $location_value= sanitize_text_field($_POST['location']);
+        update_post_meta($post_id , 'location', $location_value);
     }
 }
 ?>

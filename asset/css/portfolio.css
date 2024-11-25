@@ -1,0 +1,72 @@
+@import url(./main-css.css);
+
+.head-content-of-portfolio{
+    align-items: center;
+    margin: 50px auto !important;
+    /* width: 90% !important; */
+    padding: 20px 4px;
+    background: var(--box-color);
+    border-radius: 23px;
+    box-shadow: 0 10px 30px var(--shadow-color-c);
+}
+.single-portfolio-btn-copy-short-url{
+    padding: 5px;
+    font-size: 14px;
+    background: var(--box-color);
+    transition: 0.3s;
+    border-radius: 9px;
+    border: 1px solid var(--border-color);
+    box-shadow: 0 10px 30px var(--shadow-color-b);
+    color: var(--color-text);
+    position: absolute;
+    width: 35px !important;
+}
+
+.img-head-content-of-portfolio img{
+    max-width: 100%;
+    width: 100%;
+    border-radius: 17px;
+}
+.info-head-content-of-portfolio {
+    height: 100%;
+    display: flex;
+    flex-wrap: wrap;
+}
+.title-head-content-of-portfolio{
+    color: var(--color-text);
+    margin: 24px 0;
+    text-align: center;
+}
+.box-info-head-content-of-portfolio{
+    background: var(--body-color);
+    width: 100%;
+    padding: 19px;
+    border-radius: 11px;
+    border: 1px solid var(--border-color);
+}
+.items-info-head-content-of-portfolio{
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    list-style: none;
+}
+.items-info-head-content-of-portfolio li{
+    margin: 5px 0;
+    padding: 12px;
+    border-radius: 16px;
+    background: var(--box-color);
+    box-shadow: 0 10px 30px var(--shadow-color-c);
+}
+.items-info-head-content-of-portfolio li svg {
+    width: 24px;
+}
+.items-box-info-head-content-of-portfolio li span {
+    color: var(--color-text);
+}
+
+.main-content-of-portfolio{
+    margin: 50px auto;
+    border-radius: 15px;
+    padding: 37px;
+    background: var(--box-color);
+}
