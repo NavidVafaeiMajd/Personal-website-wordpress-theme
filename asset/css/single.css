@@ -158,3 +158,10 @@ ol.commentlist li {
 .text-blog-content-comment {
     margin-top: 70px;
 }
+
+
+/* like btn*/
+
+a#like-button.is_active svg {
+    fill: #526772 !important;
+}

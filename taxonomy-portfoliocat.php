@@ -103,7 +103,7 @@ $taxonomy = get_queried_object();
                                     </span>
                                 </div>
                                 <a href="<?php echo $postLink?>">
-                                    <div class="last-blog-cart-img my-3">
+                                    <div class="last-blog-cart-img my-3 ">
                                         <img src="<?php echo $thumbnails?>" alt="">
                                     </div>
                                 </a>

@@ -7,6 +7,15 @@ if(have_posts()){
         $postTitle = get_the_title();
         $postID = get_the_ID();
         $thumbnails =  get_the_post_thumbnail_url($postID ) ;
+        $userId = get_current_user_id();
+        $favorite_list = get_user_meta($userId, 'favorite_list', true);
+        if($favorite_list){
+            if(in_array($postID , $favorite_list)){
+                $is_favorite= true;
+            }else{
+                $is_favorite= false;
+            }
+        }
     }
 }
 ?>
@@ -66,6 +75,48 @@ if(have_posts()){
                             تاریخ  <b> : <?php echo get_the_date()?> </b>
                             </span>
                         </li>
+                        <li>
+                            <a href="" id="like-button" class="<?php echo ($is_favorite)?'is_active':'salam' ?>">
+                                <svg width="800px" height="800px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M8 10V20M8 10L4 9.99998V20L8 20M8 10L13.1956 3.93847C13.6886 3.3633 14.4642 3.11604 15.1992 3.29977L15.2467 3.31166C16.5885 3.64711 17.1929 5.21057 16.4258 6.36135L14 9.99998H18.5604C19.8225 9.99998 20.7691 11.1546 20.5216 12.3922L19.3216 18.3922C19.1346 19.3271 18.3138 20 17.3604 20L8 20" stroke="#000000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </a>
+                            <script>
+                                $(document).ready(function(){
+                                    $('#like-button').click(function(e){
+                                        let post_id = <?php echo $postID?>;
+                                        e.preventDefault();
+                                        $.ajax({
+                                            type : 'POST',
+                                            dataType : 'json',
+                                            url : '<?php echo TD;?>/ajax/general/make-favorite.php',
+                                            data :{
+                                                post_id : '<?php echo $postID?>',
+                                            },
+                                            error : function(){
+
+                                            },
+                                            success : function(data){
+                                                if(data.is_sent){
+                                                    if(data.is_favorite){
+                                                        $('#like-button').addClass('is_active');
+                                                    }else{
+                                                        $('#like-button').removeClass('is_active');
+                                                    }
+                                                }else{
+                                                    data.ErrorMessage.forEach(error=>{
+                                                        console.log(error)
+                                                    })
+                                                        
+                                        
+                                                }
+                                                
+                                            }
+                                        })
+                                    })                                    
+                                })
+                            </script>
+                        </li>
                     </ul>
                     <a href="<?php  echo wp_get_shortlink();?>" class="copy-link-head-det-blog">
                         کپی لینک مقاله
@@ -82,6 +133,7 @@ if(have_posts()){
                             });
 
                         });
+                        
 
                     </script>
                 </div>
