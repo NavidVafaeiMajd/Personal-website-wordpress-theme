@@ -86,23 +86,33 @@ if(have_posts()){
                                     $('#like-button').click(function(e){
                                         let post_id = <?php echo $postID?>;
                                         e.preventDefault();
+                                        let ajaxURL = '<?php echo admin_url('admin-ajax.php');?>'; 
+                                        			//here can make loader start
+
                                         $.ajax({
+                                            
                                             type : 'POST',
                                             dataType : 'json',
-                                            url : '<?php echo TD;?>/ajax/general/make-favorite.php',
+                                            url : ajaxURL,
                                             data :{
                                                 post_id : '<?php echo $postID?>',
+                                                action : 'make-favorite'
                                             },
-                                            error : function(){
-
+                                            error : function(e){
+                                                console.log(e)
                                             },
                                             success : function(data){
                                                 if(data.is_sent){
                                                     if(data.is_favorite){
+                                                        					//here loader finish
+
                                                         $('#like-button').addClass('is_active');
                                                     }else{
+                                                        					//here loader finish
+
                                                         $('#like-button').removeClass('is_active');
-                                                    }
+                                                    };
+                                                    
                                                 }else{
                                                     data.ErrorMessage.forEach(error=>{
                                                         console.log(error)

@@ -53,6 +53,43 @@ if ( ! defined( 'ABSPATH' ) ) {
 </main>
 <script>
 	  $("<h1><?php echo the_title()?></h1>").insertBefore(".summary .price")
+	  $(document).ready(function(){
+		$(".single_add_to_cart_button").click(function(e){
+			e.preventDefault();
+			let product_id = $(this).val();
+			let quantity = $('input[name = quantity]').val();
+			let ajaxURL = '<?php echo admin_url('admin-ajax.php');?>'; 
+			//here can make loader start
+            $.ajax({
+                type : 'POST',
+                dataType : 'json',
+                url : ajaxURL,
+                data :{
+                    product_id : product_id,
+					quantity : quantity,
+                    action : 'personal-add-to-cart'
+                },
+                error : function(e){
+					//here loader finish
+                    console.log(e)
+                },
+                success : function(data){
+					//here loader finish
+                    if(data.is_sent){
+						$('#cart-count-icon').text(data.cart_items_count)
+                    }else{
+						//here we can show items error with custom sec
+                        data.ErrorMessage.forEach(error=>{
+                            console.log(error)
+                        })
+                            
+            
+                    }
+                    
+                }
+            })
+		})
+	  })
 </script>
 <?php
 get_footer( 'shop' );
