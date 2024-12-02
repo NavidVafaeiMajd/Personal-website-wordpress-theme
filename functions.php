@@ -358,4 +358,56 @@ function personal_add_to_cart_callback(){
     wp_die();
 }
 
+
+//////////////// search input with ajax
+
+add_action('wp_ajax_personal-post-search' , 'personal_personal_post_search');
+
+add_action('wp_ajax_nopriv_personal-post-search' , 'personal_personal_post_search');
+
+function personal_personal_post_search(){
+    $searchText = isset($_POST['searchText'])?sanitize_text_field($_POST['searchText']):0;
+
+    $all_data = [];
+    $all_data ['ErrorMessage'] = [];
+    $all_data ['is_sent'] = true;
+    $all_data ['result_list'] = [];
+
+    if(!$searchText){
+        $all_data ['is_sent'] = false;
+        array_push( $all_data ['ErrorMessage'] , 'empty search text');
+        echo json_encode($all_data);
+        wp_die();
+    }
+
+    $args = array(
+        's' => $searchText,
+        'post_type' => 'post',
+    );
+    $query = new WP_Query($args);
+
+    if($query->have_posts()){
+        while($query -> have_posts()){
+            $query -> the_post();
+            $name = get_the_title();
+            $postUrl = get_the_permalink();
+            $postImg = get_the_post_thumbnail(get_the_ID());
+            array_push( $all_data ['result_list'] , array(
+                'name'=> $name,
+                'url' => $postUrl,
+                'img' => $postImg,
+            ));
+
+        }
+        echo json_encode($all_data);
+        wp_die();
+    }else{
+        $all_data ['is_sent'] = false;
+        array_push( $all_data ['ErrorMessage'] , 'not found anything');
+        echo json_encode($all_data);
+        wp_die();
+    }
+    wp_die();
+
+}
 ?>

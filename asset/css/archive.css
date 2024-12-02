@@ -41,6 +41,41 @@
     fill: white;
     border: none !important;
 }
+.search-blog-div {
+    position: relative;
+}
+
+.search-result {
+    position: absolute;
+    right: 0;
+    width: 100%;
+    background: white;
+    padding: 0px;
+    border-radius: 10px;
+    z-index: 1;
+}
+
+.search-result ul {
+    list-style: none;
+    text-align: right;
+    padding: 0;
+}
+
+
+.search-result ul li {
+    margin: 15px;
+}
+.search-result ul li a img {
+    width: 40px;
+    height: 40px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.search-result ul li a {display: flex;
+justify-content: space-between;
+}
+
 
 .blog-content-headercategory-blog{
     background: var(--box-color);

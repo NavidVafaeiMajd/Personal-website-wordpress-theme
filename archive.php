@@ -48,6 +48,60 @@ $taxonomy = get_queried_object();
                             </svg>
                         </button>
                     </form>
+                    <div class="search-result">
+
+                    </div>
+                    <script>
+                                $(document).ready(function(){
+                                    $('.search-blog-input').on( 'input',function(e){
+                                        let searchText = $(this).val();
+                                        e.preventDefault();
+                                        let ajaxURL = '<?php echo admin_url('admin-ajax.php');?>'; 
+                                        			//here can make loader start
+                                        $.ajax({
+                                            
+                                            type : 'POST',
+                                            dataType : 'json',
+                                            url : ajaxURL,
+                                            data :{
+                                                action : 'personal-post-search',
+                                                searchText : searchText,
+                                            },
+                                            error : function(e){
+                                                alert('مشکلی از سمت سرور به وجود آمد ..')
+                                            },
+                                            success : function(data){
+                                                if(data.is_sent){
+                                                        $('.search-result').empty();
+                                                        $('.search-result').show();
+                                                        data.result_list.forEach(item=>{
+                                                            $('.search-result').append(`
+                                                                <ul>
+                                                                    <li>
+                                                                        <a href="${item.url}">
+                                                                            <span>${item.name}</span>
+                                                                            ${item.img}
+                                                                        </a>
+                                                                    </li>
+                                                                </ul>
+                                                            `);
+                                                        })
+                                
+                                                    }else{
+                                                        $('.search-result').empty();
+                                                        $('.search-result').hide();
+                                                        data.ErrorMessage.forEach(error=>{
+                                                        console.log(error)
+                                                        })
+                                                    }
+                                                
+                                            }
+                                                
+                                            
+                                        })
+                                    })                                    
+                                })
+                            </script>
                 </div>
 
             </div>
