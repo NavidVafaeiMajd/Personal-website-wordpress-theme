@@ -1,4 +1,9 @@
 <?php
+if(!defined('ABSPATH')){
+    wp_die();
+}
+
+
 $stylePlaceHolder = TD . '/asset/css/archive.css';
 include 'header.php';
 function custom_excerpt_length( $length ) {

@@ -1,4 +1,8 @@
 <?php
+if(!defined('ABSPATH')){
+    wp_die();
+}
+
 $stylePlaceHolder = TD . '/asset/css/single.css';
 include 'header.php';
 if(have_posts()){

@@ -1,4 +1,8 @@
 <?php
+if(!defined('ABSPATH')){
+    wp_die();
+}
+
 include 'header.php'
 ?>
 <style>
