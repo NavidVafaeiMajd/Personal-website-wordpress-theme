@@ -410,4 +410,15 @@ function personal_personal_post_search(){
     wp_die();
 
 }
+
+add_action( 'template_redirect', 'login_template_redirect' );
+function login_template_redirect( ){
+    if ($_SERVER['REQUEST_URI'] == '/login') {
+        global $wp_query;
+        $wp_query->is_404 = false;
+        status_header(200);
+        include(dirname(__FILE__) . '/login.php');
+        exit();
+    }
+}
 ?>
