@@ -410,15 +410,43 @@ function personal_personal_post_search(){
     wp_die();
 
 }
+////////////////////////////////////////\
 
-add_action( 'template_redirect', 'login_template_redirect' );
-function login_template_redirect( ){
-    if ($_SERVER['REQUEST_URI'] == '/login') {
-        global $wp_query;
-        $wp_query->is_404 = false;
-        status_header(200);
-        include(dirname(__FILE__) . '/login.php');
-        exit();
-    }
+add_action('wp_ajax_personal-login' , 'personal_personal_login');
+
+add_action('wp_ajax_nopriv_personal-login' , 'personal_personal_login');
+
+function personal_personal_login(){
+    $username = isset($_POST['username'])?sanitize_text_field($_POST['username']):0;
+    $password = isset($_POST['password'])?sanitize_text_field($_POST['password']):0;
+
+
+    $all_data = [];
+    $all_data ['ErrorMessage'] = [];
+    $all_data ['is_sent'] = true;
+    $all_data ['result_list'] = [$username];
+
+        $creds = array();
+        $creds['user_login'] = $username;
+        $creds['user_password'] = $password;
+        $creds['remember'] = true;
+        $user = wp_signon( $creds, false );
+        if ( is_wp_error($user) ) {
+           $error = $user->get_error_message();
+           $all_data['ErrorMessage'] = [$error];
+           $all_data ['is_sent'] = false;
+           echo json_encode($all_data);
+           wp_die();
+        } else {
+            wp_set_auth_cookie( $user->ID, 0, 0);
+
+        }
+
+
+    echo json_encode($all_data);
+    wp_die();
+
 }
+
+
 ?>
