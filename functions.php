@@ -438,9 +438,9 @@ function personal_personal_login(){
            echo json_encode($all_data);
            wp_die();
         } else {
-            wp_set_auth_cookie( $user->ID, 0, 0);
-
-        }
+            wp_redirect('/thank-you'); // redirect to some sort of thank you page perhaps.
+            wp_set_auth_cookie( $user->ID,true, 0, 0);
+         }
 
 
     echo json_encode($all_data);
@@ -448,5 +448,55 @@ function personal_personal_login(){
 
 }
 
+/////////////////////////////////////////////////////////////////////
+add_action('wp_ajax_personal-reg' , 'personal_personal_reg');
 
+add_action('wp_ajax_nopriv_personal-reg' , 'personal_personal_reg');
+
+function personal_personal_reg(){
+    $usernameReg = isset($_POST['usernameReg'])?sanitize_text_field($_POST['usernameReg']):0;
+    $passwordReg = isset($_POST['passwordReg'])?sanitize_text_field($_POST['passwordReg']):0;
+    $emailReg = isset($_POST['emailReg'])?sanitize_text_field($_POST['emailReg']):0;
+    $nameReg = isset($_POST['nameReg'])?sanitize_text_field($_POST['nameReg']):0;
+
+
+    $all_data = [];
+    $all_data ['ErrorMessage'] = [];
+    $all_data ['is_sent'] = true;
+    $all_data ['result_list'] = [$usernameReg,$emailReg];
+
+    $user_id = wp_create_user( $usernameReg , $passwordReg, $emailReg ); // this creates the new user and returns the ID
+ 
+    if(!is_wp_error($user_id)){ // if the user exists/if creating was successful.
+      $user = new WP_User( $user_id ); // load the new user
+  
+      $user->set_role('subscriber'); // give the new user a role, in this case a subscriber
+      // now add your custom user meta for each data point
+      $userdata = array(
+        'ID' => $user_id,
+        'display_name' => $nameReg,
+        );
+
+        wp_update_user( $userdata );
+      wp_set_auth_cookie( $user_id,true, 0, 0);
+      wp_redirect('/thank-you'); // redirect to some sort of thank you page perhaps.
+      wp_set_auth_cookie( $user->ID,true, 0, 0);
+    }else{
+        $all_data ['ErrorMessage'] = [$user_id->get_error_message()];
+        $all_data ['is_sent'] = false;
+    }
+    echo json_encode($all_data);
+    wp_die();
+
+}
+
+
+////////////////////////////////////////////////////
+
+
+add_action( 'woocommerce_before_customer_login_form', 'myplugin_add_registration_fields' );
+
+function myplugin_add_registration_fields() {
+echo 'salam';
+}
 ?>

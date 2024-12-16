@@ -1,10 +1,11 @@
 <?php
+
 if(!defined('ABSPATH')){
     wp_die();
 }
+$myaccount_page = get_option( 'woocommerce_myaccount_page_id' );
 
-$stylePlaceHolder = TD . '/asset/css/home.css';
-include 'header.php';
+
 if(!is_user_logged_in()){
     ?>
     <style>
@@ -194,5 +195,4 @@ if(!is_user_logged_in()){
     </script>
     <?php
 }
-include 'footer.php'
 ?>
