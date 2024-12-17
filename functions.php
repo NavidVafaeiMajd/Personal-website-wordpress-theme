@@ -410,4 +410,119 @@ function personal_personal_post_search(){
     wp_die();
 
 }
+////////////////////////////////////////\
+
+add_action('wp_ajax_personal-login' , 'personal_personal_login');
+
+add_action('wp_ajax_nopriv_personal-login' , 'personal_personal_login');
+
+function personal_personal_login(){
+    $username = isset($_POST['username'])?sanitize_text_field($_POST['username']):0;
+    $password = isset($_POST['password'])?sanitize_text_field($_POST['password']):0;
+
+
+    $all_data = [];
+    $all_data ['ErrorMessage'] = [];
+    $all_data ['is_sent'] = true;
+    $all_data ['result_list'] = [$username];
+
+    if( !$password || !$username){
+        if(!$username){
+            array_push($all_data ['ErrorMessage'] , "نام یا شماره را وارد به درستی وارد کنید");
+        }
+        if(!$password){
+            array_push($all_data ['ErrorMessage'] , "رمز عبور را وارد به درستی وارد کنید");
+        }
+
+        $all_data ['is_sent'] = false;
+        echo json_encode($all_data);
+        wp_die();
+    };
+        $creds = array();
+        $creds['user_login'] = $username;
+        $creds['user_password'] = $password;
+        $creds['remember'] = true;
+        $user = wp_signon( $creds, false );
+        if ( is_wp_error($user) ) {
+           $error = $user->get_error_message();
+           $all_data['ErrorMessage'] = [$error];
+           $all_data ['is_sent'] = false;
+           echo json_encode($all_data);
+           wp_die();
+        } else {
+            wp_redirect('/thank-you'); // redirect to some sort of thank you page perhaps.
+            wp_set_auth_cookie( $user->ID,true, 0, 0);
+         }
+
+
+    echo json_encode($all_data);
+    wp_die();
+
+}
+
+/////////////////////////////////////////////////////////////////////
+add_action('wp_ajax_personal-reg' , 'personal_personal_reg');
+
+add_action('wp_ajax_nopriv_personal-reg' , 'personal_personal_reg');
+
+function personal_personal_reg(){
+    $usernameReg = isset($_POST['usernameReg'])?sanitize_text_field($_POST['usernameReg']):0;
+    $passwordReg = isset($_POST['passwordReg'])?sanitize_text_field($_POST['passwordReg']):0;
+    $emailReg = isset($_POST['emailReg'])?sanitize_email($_POST['emailReg']):0;
+    $nameReg = isset($_POST['nameReg'])?sanitize_text_field($_POST['nameReg']):0;
+
+
+
+    $all_data = [];
+    $all_data ['ErrorMessage'] = [];
+    $all_data ['is_sent'] = true;
+    $all_data ['result_list'] = [sanitize_email($emailReg)];
+
+    if(!$nameReg || !$emailReg || !$passwordReg || !$usernameReg){
+        if(!$nameReg){
+            array_push($all_data ['ErrorMessage'] , "نام را وارد به درستی وارد کنید");
+        }
+        if(!$emailReg){
+            array_push($all_data ['ErrorMessage'] , "ایمیل را وارد به درستی وارد کنید");
+        }
+        if(!$passwordReg){
+            array_push($all_data ['ErrorMessage'] , "رمز عبور را وارد به درستی وارد کنید");
+        }
+        if(!$usernameReg){
+            array_push($all_data ['ErrorMessage'] , "شماره را وارد به درستی وارد کنید");
+        }
+
+        $all_data ['is_sent'] = false;
+        echo json_encode($all_data);
+        wp_die();
+    };
+
+    $user_id = wp_create_user( $usernameReg , $passwordReg, $emailReg ); // this creates the new user and returns the ID
+ 
+    if(!is_wp_error($user_id)){ // if the user exists/if creating was successful.
+      $user = new WP_User( $user_id ); // load the new user
+  
+      $user->set_role('subscriber'); // give the new user a role, in this case a subscriber
+      // now add your custom user meta for each data point
+      $userdata = array(
+        'ID' => $user_id,
+        'display_name' => $nameReg,
+        );
+
+        wp_update_user( $userdata );
+      wp_set_auth_cookie( $user_id,true, 0, 0);
+      wp_new_user_notification($user_id,null , 'both');
+      wp_set_auth_cookie( $user->ID,true, 0, 0);
+    }else{
+        $all_data ['ErrorMessage'] = [$user_id->get_error_message()];
+        $all_data ['is_sent'] = false;
+    }
+    echo json_encode($all_data);
+    wp_die();
+
+}
+
+
+////////////////////////////////////////////////////
+
 ?>

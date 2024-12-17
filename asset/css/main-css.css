@@ -304,8 +304,32 @@ div#header-menu ul li:not(:last-child){
 }
 
 
-div#header-login-btn button {
-  margin: 0;
+div#header-login-btn > a {
+    background: var(--main-color) !important;
+    color: white !important;
+    padding: 10px;
+    border-radius: 14px;
+}
+
+div#header-login-btn> a:hover {
+    background: white !important;
+    color: var(--main-color) !important;
+}
+
+#header-login-btn:hover > nav.woocommerce-MyAccount-navigation{
+  display: block !important;
+}
+
+div#header-login-btn nav {
+  position: absolute;
+    top: 30px;
+    width: 100%;
+    display: none;
+    z-index: 1000;
+}
+
+div#header-login-btn {
+    position: relative;
 }
 
 
@@ -584,7 +608,6 @@ button#place_order {
   margin: AUTO;
   margin-top: 21px;
   display: flex;
-  justify-content: end;
 }
 
 .cart-icon-btn a {
@@ -648,3 +671,29 @@ nav.woocommerce-MyAccount-navigation ul li a:hover {background: white;color: var
   position: static;
 }
   
+div#errors {
+  display: none;
+    position: fixed;
+    top: 90px;
+    right: 0;
+}
+
+div#login-main-content-left {
+    position: relative;
+}
+div#login-main-content-right {
+  position: relative;
+}
+div#form-loader {
+  position: absolute;
+  width: 100% !important;
+  backdrop-filter: blur(7px);
+  right: 0;
+  top: 0;
+  height: 100%;
+  display: flex
+;
+  align-items: center;
+  justify-content: center;
+  background: none !important;
+}

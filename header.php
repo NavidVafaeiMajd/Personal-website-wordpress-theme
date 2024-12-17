@@ -14,6 +14,11 @@
                 <link rel="stylesheet" href="<?php echo $stylePlaceHolder?>">
             <?php
         }
+
+        $currentUserData = wp_get_current_user();
+        $myAccountItem = wc_get_account_menu_items();
+        $myaccount_page = get_option( 'woocommerce_myaccount_page_id' );
+
     ?>
 
     <title>Personal Website</title>
@@ -36,17 +41,48 @@
                 ?>
             </div>
             <div id="header-login-btn">
-                <button>
-                    <svg width="25px" height="25px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <circle cx="12" cy="6" r="4" stroke="white" stroke-width="1.5"/>
-                        <path opacity="0.5" d="M20 17.5C20 19.9853 20 22 12 22C4 22 4 19.9853 4 17.5C4 15.0147 7.58172 13 12 13C16.4183 13 20 15.0147 20 17.5Z" stroke="white" stroke-width="1.5"/>
-                    </svg>
-                    عضویت / ورود
-                </button>
+                
+                    <?php
+                    if(is_user_logged_in()){
+
+                        ?>
+                        <a id="header-login-btn_account" href="<?php if ( $myaccount_page ) {echo get_permalink( $myaccount_page );} ?>">
+                            <?php
+                            echo $currentUserData->display_name;
+                            echo (" عزیز خوش آمدید! ");
+                            
+                            ?>
+                        </a>
+                        <?php do_action('woocommerce_account_navigation');?>
+                        <?php
+                    }else{
+                        ?>
+                        <a href="<?php if ( $myaccount_page ) {echo get_permalink( $myaccount_page );} ?>">
+                            <svg width="25px" height="25px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="12" cy="6" r="4" stroke="white" stroke-width="1.5"/>
+                                <path opacity="0.5" d="M20 17.5C20 19.9853 20 22 12 22C4 22 4 19.9853 4 17.5C4 15.0147 7.58172 13 12 13C16.4183 13 20 15.0147 20 17.5Z" stroke="white" stroke-width="1.5"/>
+                            </svg>
+                            عضویت / ورود
+                        </a>
+                        <?php
+                    }
+                    ?>
+                
             </div>
         </div>
         <div class="cart-icon-btn">
             <?php do_shortcode('[woo_cart_shortcode]')?>
             
         </div>
+        <!-- <script>
+            $(document).ready(function(){
+                $("#header-login-btn_account").hover(function(){
+                    $("#header-login-btn nav.woocommerce-MyAccount-navigation").show();
+                },
+                function() {
+                    $("#header-login-btn nav.woocommerce-MyAccount-navigation").hide();
+                }
+                );
+            });
+        </script> -->
     </header>
