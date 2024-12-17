@@ -426,6 +426,18 @@ function personal_personal_login(){
     $all_data ['is_sent'] = true;
     $all_data ['result_list'] = [$username];
 
+    if( !$password || !$username){
+        if(!$username){
+            array_push($all_data ['ErrorMessage'] , "نام یا شماره را وارد به درستی وارد کنید");
+        }
+        if(!$password){
+            array_push($all_data ['ErrorMessage'] , "رمز عبور را وارد به درستی وارد کنید");
+        }
+
+        $all_data ['is_sent'] = false;
+        echo json_encode($all_data);
+        wp_die();
+    };
         $creds = array();
         $creds['user_login'] = $username;
         $creds['user_password'] = $password;
@@ -456,14 +468,34 @@ add_action('wp_ajax_nopriv_personal-reg' , 'personal_personal_reg');
 function personal_personal_reg(){
     $usernameReg = isset($_POST['usernameReg'])?sanitize_text_field($_POST['usernameReg']):0;
     $passwordReg = isset($_POST['passwordReg'])?sanitize_text_field($_POST['passwordReg']):0;
-    $emailReg = isset($_POST['emailReg'])?sanitize_text_field($_POST['emailReg']):0;
+    $emailReg = isset($_POST['emailReg'])?sanitize_email($_POST['emailReg']):0;
     $nameReg = isset($_POST['nameReg'])?sanitize_text_field($_POST['nameReg']):0;
+
 
 
     $all_data = [];
     $all_data ['ErrorMessage'] = [];
     $all_data ['is_sent'] = true;
-    $all_data ['result_list'] = [$usernameReg,$emailReg];
+    $all_data ['result_list'] = [sanitize_email($emailReg)];
+
+    if(!$nameReg || !$emailReg || !$passwordReg || !$usernameReg){
+        if(!$nameReg){
+            array_push($all_data ['ErrorMessage'] , "نام را وارد به درستی وارد کنید");
+        }
+        if(!$emailReg){
+            array_push($all_data ['ErrorMessage'] , "ایمیل را وارد به درستی وارد کنید");
+        }
+        if(!$passwordReg){
+            array_push($all_data ['ErrorMessage'] , "رمز عبور را وارد به درستی وارد کنید");
+        }
+        if(!$usernameReg){
+            array_push($all_data ['ErrorMessage'] , "شماره را وارد به درستی وارد کنید");
+        }
+
+        $all_data ['is_sent'] = false;
+        echo json_encode($all_data);
+        wp_die();
+    };
 
     $user_id = wp_create_user( $usernameReg , $passwordReg, $emailReg ); // this creates the new user and returns the ID
  
@@ -479,7 +511,7 @@ function personal_personal_reg(){
 
         wp_update_user( $userdata );
       wp_set_auth_cookie( $user_id,true, 0, 0);
-      wp_redirect('/thank-you'); // redirect to some sort of thank you page perhaps.
+      wp_new_user_notification($user_id,null , 'both');
       wp_set_auth_cookie( $user->ID,true, 0, 0);
     }else{
         $all_data ['ErrorMessage'] = [$user_id->get_error_message()];
@@ -493,10 +525,4 @@ function personal_personal_reg(){
 
 ////////////////////////////////////////////////////
 
-
-add_action( 'woocommerce_before_customer_login_form', 'myplugin_add_registration_fields' );
-
-function myplugin_add_registration_fields() {
-echo 'salam';
-}
 ?>

@@ -671,3 +671,29 @@ nav.woocommerce-MyAccount-navigation ul li a:hover {background: white;color: var
   position: static;
 }
   
+div#errors {
+  display: none;
+    position: fixed;
+    top: 90px;
+    right: 0;
+}
+
+div#login-main-content-left {
+    position: relative;
+}
+div#login-main-content-right {
+  position: relative;
+}
+div#form-loader {
+  position: absolute;
+  width: 100% !important;
+  backdrop-filter: blur(7px);
+  right: 0;
+  top: 0;
+  height: 100%;
+  display: flex
+;
+  align-items: center;
+  justify-content: center;
+  background: none !important;
+}
