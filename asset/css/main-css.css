@@ -303,6 +303,47 @@ div#header-menu ul li:not(:last-child){
   border-left: 1px solid var(--menu-color);
 }
 
+/* sub menu */
+li.menu-item:hover > ul {
+  display: flex !important;
+  align-items: center;
+  justify-content: center !important;
+  flex-direction: column !important;
+  
+}
+
+li.menu-item {
+  position: relative;
+  padding: 10px 0;
+
+}
+ul.sub-menu > li{
+  padding: 10px !important;
+  border-left: none !important;
+
+}
+li.menu-item a::before{
+  display: none !important;
+}
+ ul.menu >li >ul {
+  position: absolute;
+  top:auto;
+  left:auto;
+  right: -40px !important;
+}
+
+li.menu-item ul {
+  background: var(--box-color) !important;
+  border-radius: 14px !important;  position:absolute;
+  top:0;
+  right:100%;
+  display: none !important;
+  margin: 0;
+  padding: 0;
+  width: 150px !important;
+
+}
+
 
 div#header-login-btn > a {
     background: var(--main-color) !important;

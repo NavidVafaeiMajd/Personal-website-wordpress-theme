@@ -25,7 +25,7 @@
 </head>
 <body>
     <header>
-        <div id="header-content">
+        <div id="header-content" class="d-none d-md-flex ">
             <div id="header-doted">
                 <span id="header-doted-red" style=""></span>
                 <span id="header-doted-yellow"></span>
@@ -85,4 +85,20 @@
                 );
             });
         </script> -->
+    </header>
+    <header id="mobile-header">
+        <div id="mobile-header-main">
+            <div class="mobile-header-item">
+
+            </div>
+            <div class="mobile-header-item">
+                
+                </div>
+            <div class="mobile-header-item">
+                
+            </div>
+            <div class="mobile-header-item">
+                
+            </div>
+        </div>
     </header>
