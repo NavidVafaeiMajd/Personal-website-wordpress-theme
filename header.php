@@ -16,7 +16,15 @@
         }
 
         $currentUserData = wp_get_current_user();
-        $myAccountItem = wc_get_account_menu_items();
+        ?>
+        <script>
+            console.log("salam")
+        </script>
+        <?php
+            if (class_exists('WooCommerce')) {
+                $myAccountItem = wc_get_account_menu_items();
+
+            }
         $myaccount_page = get_option( 'woocommerce_myaccount_page_id' );
 
     ?>
