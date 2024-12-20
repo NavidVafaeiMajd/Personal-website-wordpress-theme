@@ -117,7 +117,7 @@ $taxonomy = get_queried_object();
                         <?php
                                 $categories = get_categories( array(
                                     'orderby' => 'date',
-                                    'order'   => 'ASC'
+                                    'order'   => 'DESC'
                                 ) );
                                 foreach( $categories as $category ) {
                                 echo '<li class="parent-item"><a href="' . get_category_link($category->term_id) . '">' . $category->name . '</a></li>';   

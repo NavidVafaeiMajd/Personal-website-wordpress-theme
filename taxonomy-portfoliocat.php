@@ -63,6 +63,7 @@ $taxonomy = get_queried_object();
                             <?php
                             $termsList = get_terms(array(
                                 'taxonomy'   => 'portfoliocat',
+                                'order' => 'DESC'
                             ));
                             foreach($termsList as $term){
                                 echo '<li class="parent-item"><a href="' . get_term_link($term->term_id) . '">' . $term->name . '</a></li>';   
