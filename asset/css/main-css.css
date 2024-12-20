@@ -184,9 +184,7 @@ h1,h2,h3,h4,h5,h6{
 body{
   background-color: #F0F2F5;
 }
-svg path{
-  stroke: var(--text-color) !important;
-}
+
 button {
   background: var(--main-color);
   padding: 8px 22px;
@@ -302,6 +300,50 @@ div#header-menu ul li{
 div#header-menu ul li:not(:last-child){
   border-left: 1px solid var(--menu-color);
 }
+.current-menu-item > a {
+  color: var(--main-color) !important;
+}
+
+/* sub menu */
+li.menu-item:hover > ul {
+  display: flex !important;
+  align-items: center;
+  justify-content: center !important;
+  flex-direction: column !important;
+  
+}
+
+li.menu-item {
+  position: relative;
+  padding: 10px 0;
+
+}
+ul.sub-menu > li{
+  padding: 10px !important;
+  border-left: none !important;
+
+}
+li.menu-item a::before{
+  display: none !important;
+}
+ ul.menu >li >ul {
+  position: absolute;
+  top:auto;
+  left:auto;
+  right: -40px !important;
+}
+
+li.menu-item ul {
+  background: var(--box-color) !important;
+  border-radius: 14px !important;  position:absolute;
+  top:0;
+  right:100%;
+  display: none !important;
+  margin: 0;
+  padding: 0;
+  width: 150px !important;
+
+}
 
 
 div#header-login-btn > a {
@@ -331,7 +373,55 @@ div#header-login-btn nav {
 div#header-login-btn {
     position: relative;
 }
+ 
+/* header menu*/
+header#mobile-header {
+  position: fixed;
+  bottom: 0;
+  top: 88%;
+  z-index: 20;
+}
 
+div#mobile-header-main {
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  width: 90%;
+  margin: auto;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.521);
+  margin: 0px auto;
+  backdrop-filter: blur(17px);
+  box-shadow: 0 10px 9px var(--shadow-color-c);
+  border: 1px solid var(--border-color);
+}
+
+.mobile-header-item a {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+}
+div#mobile-nav-menu {
+  position: fixed;
+  background: white;
+  width: 100%;
+  margin: 0 auto !important;
+  z-index: 100;
+  top: 0;
+  display: none;
+}
+div#mobile-nav-menu ul li.menu-item ul {
+  position: static !important;
+}
+
+div#mobile-nav-menu ul {
+  list-style: none;
+}
+div#mobile-nav-menu ul li ul {
+  background: #8080801f !important;
+}
+div#mobile-nav-menu ul li li.menu-item {text-align: center;}
 
 
 

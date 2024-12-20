@@ -38,7 +38,7 @@
 .first-sec-content-boldName {
     position: absolute;
     font-weight: 900;
-    font-size: 12rem;
+    font-size: 6rem;
     text-indent: 0px;
     color: #d4dfe3;
     z-index: -1;
@@ -92,6 +92,10 @@
 .secound-sec-content-right {
     padding-right: 15px;
     border-right: 3px solid var(--main-color);
+}
+.secound-sec-content-left img {
+    width: 100% !important;
+    max-width: 1000px;
 }
 
 /* third dection style */
