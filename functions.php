@@ -529,19 +529,25 @@ function personal_personal_reg(){
 
 ////////////////////////////////////////////////////
 
-add_action('admin_menu', 'register_sample_page');
+add_action('admin_menu', 'theme_setting_menu_bar');
 
-function register_sample_page() {
-    add_menu_page( "تنظیمات", "تنظیمات", "manage_options", "belo_main","belo_main_callback",  false); 
-
-
-
-    
-}
-function belo_main_callback(){
-    echo "salam";
+function theme_setting_menu_bar() {
+    add_menu_page( "تنظیمات قالب" , " تنظیمات قالب", "manage_options", "theme_setting","theme_setting_callback",  false); 
+    function theme_setting_callback(){
+        include ("admin\mainAdmin.php");
+    }
 }
 
+add_action("init", "theme_setting_menu_bar_form");
+function theme_setting_menu_bar_form(){
+    $bexan = isset($_POST['bexan'])?sanitize_text_field($_POST['bexan']):0;
+    ?>
+    <script>
+    console.log("<?php     echo $bexan;
+ ?>")
+    </script><?php
+
+}
 
 
 ?>

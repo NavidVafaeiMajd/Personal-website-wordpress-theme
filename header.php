@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
 <?php wp_head();?>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -30,6 +31,22 @@
     ?>
 
     <title>Personal Website</title>
+    <style>
+          :root {
+    --main-color: #17cd6d;
+    --text-color: #526772;
+    --secondery-color : #7ca1aa;
+    --menu-color:#768aad;
+    --border-raduis:17px;
+    --border-color:#d1d7e7;
+    --shadow-color-a: #17cd6d1f;
+    --shadow-color-b: #5d80b51a;
+    --shadow-color-c: #7b83a314;
+    --body-color: #f0f2f5;
+    --box-color: #ffffff;
+    --menu-mobile-color: #ffffffdb;
+  }
+    </style>
 </head>
 <body>
     <header>
