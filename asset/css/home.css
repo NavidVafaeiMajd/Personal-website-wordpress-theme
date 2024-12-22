@@ -148,4 +148,31 @@
     border-radius: 0 100px 100px 0;
 }
 
-/* forth section style is in nain css for global carts*/
+/*custom style for archive card of potfilio with some change*/
+
+.detail-btn-block{
+    position: absolute !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 14px;
+    border-radius: 14px;
+    transition: 0.3s;
+    backdrop-filter: blur(5px);
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    transform: scaleY(0);
+  }
+  .last-blog-cart-content:hover .detail-btn-block{
+    transform: scaleY(1) !important;
+  
+  }
+  a.detail-btn-link {
+    background: var(--main-color);
+    color: white;
+    padding: 10px;
+    border-radius: 14px;
+}

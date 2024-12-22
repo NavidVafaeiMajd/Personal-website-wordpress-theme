@@ -3,13 +3,23 @@ if(!defined('ABSPATH')){
     wp_die();
 }
 
+/* Template Name: صفحه نمونه کار ها */
+
 $stylePlaceHolder = TD . '/asset/css/archive.css';
+
 include 'header.php';
+
 function custom_excerpt_length( $length ) {
     return 10;
 }
+
 add_filter( 'excerpt_length', 'custom_excerpt_length');
+
+
 $taxonomy = get_queried_object();
+
+$paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
+
 ?>
 
 <main>
@@ -23,7 +33,7 @@ $taxonomy = get_queried_object();
                 </a>
                 </li>
                 <li class="" aria-current="page">
-                    <?php echo  $taxonomy->name;?>
+                    بلاگ
                 </li>
             </ol>
             <button id="btn-previous-page" onclick="history.back();" class="btn-previous-page">
@@ -40,7 +50,7 @@ $taxonomy = get_queried_object();
         <div class="top-archive-blog-content">
             <div class="head-top-archive-blog-content flex-column flex-md-row">
                 <h1 class="title-blog">
-                <?php echo  $taxonomy->name;?> 
+                بلاگ 
                 </h1>
                 <!-- serach blog in posts  -->
                 <div class="search-blog-div">
@@ -56,21 +66,19 @@ $taxonomy = get_queried_object();
 
             </div>
             <div>
-                    <div class="blog-content-headercategory-blog" style="margin:0 auto !important;">
+                    <div class="blog-content-headercategory-blog" style="margin:10px auto !important;">
 
                         
                         <ul class="ul-blog-content-headercategory-blog">
-                            <?php
-                            $termsList = get_terms(array(
-                                'taxonomy'   => 'portfoliocat',
-                                'order' => 'DESC'
-                            ));
-                            foreach($termsList as $term){
-                                echo '<li class="parent-item"><a href="' . get_term_link($term->term_id) . '">' . $term->name . '</a></li>';   
-                             }
-
+                        <?php
+                                $categories = get_categories( array(
+                                    'orderby' => 'date',
+                                    'order'   => 'DESC'
+                                ) );
+                                foreach( $categories as $category ) {
+                                echo '<li class="parent-item"><a href="' . get_category_link($category->term_id) . '">' . $category->name . '</a></li>';   
+                                } 
                             ?>
- 
                         </ul>
 
                     </div>
@@ -79,10 +87,17 @@ $taxonomy = get_queried_object();
         <div class="archive-blog-posts row g-3 my-3">
                 <?php
                 $paged = ( get_query_var( 'paged' ) ) ? get_query_var( 'paged' ) : 1;
+                $portfolioArgs=array(
+                    'post_type' => 'portfolio',
+                    'posts_per_page' => 3,
+                    'orderby' => 'date',
+                    'order' => 'DESC',
 
-                if(have_posts()){
-                    while(have_posts()){
-                        the_post();
+                );
+                $lastPortfolio = new WP_Query( $portfolioArgs );
+                if($lastPortfolio -> have_posts()){
+                    while($lastPortfolio ->have_posts()){
+                        $lastPortfolio->the_post();
                         $postTitle = get_the_title();
                         $postID = get_the_ID();
                         $thumbnails =  get_the_post_thumbnail_url($postID ) ;
@@ -128,6 +143,7 @@ $taxonomy = get_queried_object();
                             
                         </div>
                         <?php
+                        
                     }
                 }else{
                     ?>
@@ -148,7 +164,15 @@ $taxonomy = get_queried_object();
                     <?php
                 }
                 ?>
-                
+                <div class="pagination">
+                <?php
+                echo "<div class='fz-pagination'>" . paginate_links(array(
+                    'total' => $lastPortfolio->max_num_pages,
+                    'prev_text' => __('<div class="preious-page"> قبلی </div>'),
+                    'next_text' => __('<div class="next-page"> بعدی </div>')
+                )) . "</div>";
+                ?>
+                </div>
         </div>
         
     </div>

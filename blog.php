@@ -3,14 +3,23 @@ if(!defined('ABSPATH')){
     wp_die();
 }
 
+/* Template Name: صفحه بلاگ */
 
 $stylePlaceHolder = TD . '/asset/css/archive.css';
+
 include 'header.php';
+
 function custom_excerpt_length( $length ) {
     return 10;
 }
+
 add_filter( 'excerpt_length', 'custom_excerpt_length');
+
+
 $taxonomy = get_queried_object();
+
+$paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
+
 ?>
 
 <main>
@@ -57,7 +66,7 @@ $taxonomy = get_queried_object();
 
             </div>
             <div>
-                    <div class="blog-content-headercategory-blog" style="margin:0 auto !important;">
+                    <div class="blog-content-headercategory-blog" style="margin:10px auto !important;">
 
                         
                         <ul class="ul-blog-content-headercategory-blog">
@@ -75,26 +84,37 @@ $taxonomy = get_queried_object();
                     </div>
                 </div>
         </div>
-        <div class="archive-blog-posts row g-3 my-3">
+        <div class="last-blog row g-3">
                 <?php
-                $paged = ( get_query_var( 'paged' ) ) ? get_query_var( 'paged' ) : 1;
+                // The Query.
+                $args=array(
+                    'post_type' => 'post',
+                    'orderby' => 'date',
+                    'order' => 'DESC',
+                    'posts_per_page' => 3,
+                    'paged' => $paged,
 
-                if(have_posts()){
-                    while(have_posts()){
-                        the_post();
+                );
+                $lastPosts = new WP_Query( $args );
+
+                // The Loop.
+                if ( $lastPosts->have_posts() ) {
+                    
+                    while ( $lastPosts->have_posts() ) {
+                        $lastPosts->the_post();
                         $postTitle = get_the_title();
                         $postID = get_the_ID();
                         $thumbnails =  get_the_post_thumbnail_url($postID ) ;
                         $expert = get_the_excerpt();
                         $postLink = wp_get_shortlink();
                         $postDate = get_the_date();
-                        $args = array(
+                        $argsComment = array(
                             'post_id' => $postID,   // Use post_id, not post_ID
                             'count'   => true // Return only the count
                         );
-                        $comments_count = get_comments( $args );
+                        $comments_count = get_comments( $argsComment );
                         ?>
-                        <div class="last-blog-cart col-sm-12 col-md-6 col-lg-3">
+                        <div class="last-blog-cart col-sm-12 col-md-6 col-lg-4">
                             <div class="last-blog-cart-content">
                                 <a href="<?php echo $postLink?>">
                                     <div class="last-blog-cart-img">
@@ -127,26 +147,23 @@ $taxonomy = get_queried_object();
                         </div>
                         <?php
                     }
-                }else{
-                    ?>
-                    <div class="posts-blog row container d-flex justify-content-center">
+                    
 
-
-                    <img src="https://topigo.baitimo.ir/wp-content/themes/topigo/assets/img/Navigation.svg" alt="نتیجه ای یافت نشد" class=" col-md-6">
-                                <h2 class="text-center" style="color:#4f6672;">
-                        متأسفانه نتیجه محتوایی که به دنبال آن میگردید یافت نشد!    </h2>
-
-
-                    <div class="pagination text-center">
-                    </div>
-
-
-
-                        </div>
-                    <?php
+                } else {
+                    esc_html_e( 'Sorry, no posts matched your criteria.' );
                 }
+                // Restore original Post Data.
+                wp_reset_postdata();
                 ?>
-                
+                <div class="pagination">
+                <?php
+                echo "<div class='fz-pagination'>" . paginate_links(array(
+                    'total' => $lastPosts->max_num_pages,
+                    'prev_text' => __('<div class="preious-page"> قبلی </div>'),
+                    'next_text' => __('<div class="next-page"> بعدی </div>')
+                )) . "</div>";
+                ?>
+                </div>
         </div>
         
     </div>

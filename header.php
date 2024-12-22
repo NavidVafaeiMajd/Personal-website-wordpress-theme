@@ -1,11 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
 <?php wp_head();?>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <link rel="icon" type="image/x-icon" href="<?php echo TD?>/Screenshot.png">
+    <link rel="icon" type="image/x-icon" href="
+    <?php
+    $attachment_id = get_option('personal_theme_logo'); 
+    $image_attributes = wp_get_attachment_image_src($attachment_id, 'full');
+    if ($image_attributes) {
+        echo  $image_attributes[0] ;
+    }
+    ?>
+">
     <link rel="stylesheet" href="<?php echo TD?>/asset/css/main-css.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <?php
@@ -16,12 +25,36 @@
         }
 
         $currentUserData = wp_get_current_user();
-        $myAccountItem = wc_get_account_menu_items();
+        global $post;
+            if (class_exists('WooCommerce')) {
+                $myAccountItem = wc_get_account_menu_items();
+
+            }
         $myaccount_page = get_option( 'woocommerce_myaccount_page_id' );
+        $taxonomy = get_queried_object();
+
 
     ?>
 
-    <title>Personal Website</title>
+    <title><?php  echo the_title();
+    
+    ?></title>
+    <style>
+          :root {
+    --main-color: #17cd6d;
+    --text-color: #526772;
+    --secondery-color : #7ca1aa;
+    --menu-color:#768aad;
+    --border-raduis:17px;
+    --border-color:#d1d7e7;
+    --shadow-color-a: #17cd6d1f;
+    --shadow-color-b: #5d80b51a;
+    --shadow-color-c: #7b83a314;
+    --body-color: #f0f2f5;
+    --box-color: #ffffff;
+    --menu-mobile-color: #ffffffdb;
+  }
+    </style>
 </head>
 <body>
     <header>
@@ -89,7 +122,7 @@
     <header id="mobile-header" class="d-md-none ">
         <div id="mobile-header-main">
             <div class="mobile-header-item">
-                <a href="">
+                <a href="<?php echo get_home_url();?>">
                     <svg width="25px" height="25px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2 12.2039C2 9.91549 2 8.77128 2.5192 7.82274C3.0384 6.87421 3.98695 6.28551 5.88403 5.10813L7.88403 3.86687C9.88939 2.62229 10.8921 2 12 2C13.1079 2 14.1106 2.62229 16.116 3.86687L18.116 5.10812C20.0131 6.28551 20.9616 6.87421 21.4808 7.82274C22 8.77128 22 9.91549 22 12.2039V13.725C22 17.6258 22 19.5763 20.8284 20.7881C19.6569 22 17.7712 22 14 22H10C6.22876 22 4.34315 22 3.17157 20.7881C2 19.5763 2 17.6258 2 13.725V12.2039Z" stroke="#1C274C" stroke-width="1.5"/><path d="M15 18H9" stroke="#1C274C" stroke-width="1.5" stroke-linecap="round"/></svg>
                     <span>
                         خانه
@@ -97,7 +130,7 @@
                 </a>
             </div>
             <div class="mobile-header-item">
-                <a href="">
+                <a href="<?php echo get_option( "blogPageLink" , "" )?>">
                 <svg fill="#000000" width="25px" height="25px" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="M172.2 226.8c-14.6-2.9-28.2 8.9-28.2 23.8V251c0 10.2 7.1 18.4 16.7 22 18.2 6.8 31.3 24.4 31.3 45 0 26.5-21.5 48-48 48s-48-21.5-48-48V120c0-13.3-10.7-24-24-24H24c-13.3 0-24 10.7-24 24v248c0 89.5 82.1 160.2 175 140.7 54.4-11.4 98.3-55.4 109.7-109.7 17.4-82.9-37-157.2-112.5-172.2zM209 0c-9.2-.5-17 6.8-17 16v31.6c0 8.5 6.6 15.5 15 15.9 129.4 7 233.4 112 240.9 241.5.5 8.4 7.5 15 15.9 15h32.1c9.2 0 16.5-7.8 16-17C503.4 139.8 372.2 8.6 209 0zm.3 96c-9.3-.7-17.3 6.7-17.3 16.1v32.1c0 8.4 6.5 15.3 14.8 15.9 76.8 6.3 138 68.2 144.9 145.2.8 8.3 7.6 14.7 15.9 14.7h32.2c9.3 0 16.8-8 16.1-17.3-8.4-110.1-96.5-198.2-206.6-206.7z"/></svg>    
                 <span>
                         بلاگ
@@ -105,7 +138,7 @@
                 </a>
             </div>
             <div class="mobile-header-item">
-                <a href="">
+                <a href="<?php echo get_option( "portfolioPageLink" , "" )?>">
                 <svg  height="25px" width="25px" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 295.668 295.668" xml:space="preserve"><g><g><g><path d="M269.038,75.741c0.183-0.714,0.29-1.459,0.29-2.231c0-4.971-4.029-9-9-9h-19.499c-4.971,0-9,4.029-9,9
 				c0,0.397,0.035,0.785,0.084,1.169h-27.111V62.25c0-20.633-16.787-37.42-37.421-37.42h-39.096
 				c-20.634,0-37.421,16.787-37.421,37.42v12.429h-27.11c0.05-0.384,0.084-0.772,0.084-1.169c0-4.971-4.029-9-9-9H35.34

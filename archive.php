@@ -18,7 +18,7 @@ $taxonomy = get_queried_object();
         <nav aria-label="breadcrumb" >
             <ol class="breadcrumb">
                 <li class="breadcrumb-item">
-                <a href="">
+                <a href="<?php echo get_home_url();?>">
                      خانه /  
                 </a>
                 </li>
@@ -199,6 +199,15 @@ $taxonomy = get_queried_object();
                     <?php
                 }
                 ?>
+                                <div class="pagination">
+                <?php
+                echo "<div class='fz-pagination'>" . paginate_links(array(
+                    'total' => the_post()->max_num_pages,
+                    'prev_text' => __('<div class="preious-page"> قبلی </div>'),
+                    'next_text' => __('<div class="next-page"> بعدی </div>')
+                )) . "</div>";
+                ?>
+                </div>
                 
         </div>
         

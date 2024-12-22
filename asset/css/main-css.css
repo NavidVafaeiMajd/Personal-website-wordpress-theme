@@ -787,3 +787,32 @@ div#form-loader {
   justify-content: center;
   background: none !important;
 }
+
+/* paggination styles*/
+
+.pagination div {
+  display: flex;
+  margin: auto;
+  gap: 15px;
+}
+
+.pagination div a {
+  background: var(--main-color);
+  color: white;
+  padding: 10px;
+  min-width: 35px;
+  text-align: center;
+  border-radius: 10px;
+}
+
+.pagination div a div {
+  color: white;
+}
+
+.pagination div span {
+  min-width: 35px;
+  padding: 10px;
+  background: #8080802b;
+  border-radius: 10px;
+  text-align: center;
+}

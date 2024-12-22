@@ -3,6 +3,7 @@ if(!defined('ABSPATH')){
     wp_die();
 }
 
+/* Template Name: صفحه اصلی */
 $stylePlaceHolder = TD . '/asset/css/home.css';
 include 'header.php';
 ?>
@@ -23,18 +24,16 @@ include 'header.php';
                     </h1>
                     <div>
                         <button>درباره ما</button>
-                        <button id="secondary-btn">نمونه کار ها</button>
+                        <a href="<?php echo get_option( "portfolioPageLink" , "" )?>">
+                            <button id="secondary-btn">نمونه کار ها</button>
+                        </a>
                     </div>
                 </div>
             </div>
             <div class="sochial-icon">
-                <a href="" class="sochial-icon-tel">
-                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M18.6357 15.6701L20.3521 10.5208C21.8516 6.02242 22.6013 3.77322 21.414 2.58595C20.2268 1.39869 17.9776 2.14842 13.4792 3.64788L8.32987 5.36432C4.69923 6.57453 2.88392 7.17964 2.36806 8.06698C1.87731 8.91112 1.87731 9.95369 2.36806 10.7978C2.88392 11.6852 4.69923 12.2903 8.32987 13.5005C8.91282 13.6948 9.2043 13.792 9.44793 13.9551C9.68404 14.1131 9.88687 14.316 10.0449 14.5521C10.208 14.7957 10.3052 15.0872 10.4995 15.6701C11.7097 19.3008 12.3148 21.1161 13.2022 21.6319C14.0463 22.1227 15.0889 22.1227 15.933 21.6319C16.8204 21.1161 17.4255 19.3008 18.6357 15.6701Z" />
-                    <path opacity="0.5" d="M17.7894 6.21088L13.5789 10.375" stroke="#1C274C" stroke-width="1.5" stroke-linecap="round"/>
-                    </svg>
-                </a>
-                <a href="" class="sochial-icon-linkedin">
+                <a href="<?php echo get_option( "githublink" , "" )?>" class="sochial-icon-tel">
+                <svg width="800px" height="800px" viewBox="0 0 48 48" version="1.1" id="Shopicons" xmlns="http://www.w3.org/2000/svg" x="0" y="0" xml:space="preserve"><style>.st1{fill:#fff}.st2,.st3{fill:none;stroke:#666;stroke-width:4;stroke-miterlimit:10}.st3{stroke-width:6}</style><g id="github_00000178918564504449926280000008731996709616696990_"><path d="M0 .011h48v48H0v-48z" fill="none"/><path d="M30 44.004v-10c0-.884-.197-1.722-.542-2.479.825-.167 1.65-.358 2.472-.601 2.527-.746 6.154-3.839 7.226-6.863 1.188-3.356 1.188-6.76 0-10.116l-.001-.001c-.213-.603-.537-1.211-.998-1.868.848-3.154.253-5.792.225-5.915l-.365-1.564-1.606.019c-.15.002-3.48.063-6.724 1.955a29.635 29.635 0 0 0-11.371 0c-3.243-1.892-6.573-1.953-6.724-1.955l-1.608-.019-.365 1.564c-.028.123-.623 2.761.225 5.915-.461.657-.785 1.266-.999 1.869-1.187 3.356-1.187 6.76.001 10.117 1.07 3.023 4.697 6.116 7.225 6.862.822.243 1.647.434 2.472.601A5.946 5.946 0 0 0 18 34.004v1.281c-.062.036-.127.065-.187.108-.289.211-2.869 1.967-5.505.09-.93-.946-1.386-1.639-1.826-2.309-.988-1.5-1.841-2.586-4.588-3.96a2 2 0 1 0-1.789 3.579c1.991.995 2.341 1.525 3.035 2.581.515.781 1.155 1.754 2.445 3.044l.215.186c1.692 1.27 3.447 1.723 5.053 1.723A9.286 9.286 0 0 0 18 39.76v4.253l12-.009z"/></g></svg>                </a>
+                <a href="<?php echo get_option( "linkinLink" , "" )?>" class="sochial-icon-linkedin">
                 <svg fill="#000000" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 555.347 555.347" xml:space="preserve"><g><path d="M118.656,0.117c-4.896-0.612-9.18,1.224-11.628,4.284C80.712,2.565,56.232,21.538,48.276,50.914
                     c-10.404,37.944,23.868,77.724,62.424,75.888c31.212-1.836,57.528-28.152,64.872-57.528C183.528,31.33,154.152,3.177,118.656,0.117
                     z"/><path d="M155.376,189.837c0-4.896-3.06-7.344-6.732-7.956c-1.224-6.12-6.12-11.016-13.464-10.404
@@ -53,7 +52,7 @@ include 'header.php';
                     c3.672,0.612,7.345,0,11.017-1.836c0.611,1.224,1.224,2.448,2.447,4.284c-8.567,0-16.523,0.611-25.092,0.611
                     C433.225,509.913,433.225,508.689,433.225,507.466z"/></g></svg>
                 </a>
-                <a href="" class="sochial-icon-insg">
+                <a href="<?php echo get_option( "instalink" , "")?>" class="sochial-icon-insg">
                     <svg width="800px" height="800px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                         <g>
                             <path fill="none" d="M0 0h24v24H0z"/>
@@ -239,6 +238,99 @@ include 'header.php';
                 </div>
             </div>
         </div>
+        <div class="fifth-sec container" style="margin-top: 100px; margin-bottom: 170px;">
+            <div class="special-title" style="text-align: center;">
+                <h1>آخرین نمونه کار ها</h1>
+                <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ</p>
+            </div>
+            <div class="archive-blog-posts row g-3 my-3">
+                <?php
+                $paged = ( get_query_var( 'paged' ) ) ? get_query_var( 'paged' ) : 1;
+                $portfolioArgs=array(
+                    'post_type' => 'portfolio',
+                    'posts_per_page' => 3,
+                    'orderby' => 'date',
+                    'order' => 'DESC',
+
+                );
+                $lastPortfolio = new WP_Query( $portfolioArgs );
+                if($lastPortfolio -> have_posts()){
+                    while($lastPortfolio ->have_posts()){
+                        $lastPortfolio->the_post();
+                        $postTitle = get_the_title();
+                        $postID = get_the_ID();
+                        $thumbnails =  get_the_post_thumbnail_url($postID ) ;
+                        $postLink = get_permalink();
+                        $postDate = get_the_date();
+                        $terms = get_the_term_list($postID , 'portfoliocat'); 
+                        $args = array(
+                            'post_id' => $postID,   // Use post_id, not post_ID
+                            'count'   => true // Return only the count
+                        );
+                        $comments_count = get_comments( $args );
+                        ?>
+                        <div class="last-blog-cart col-sm-12 col-md-6 col-lg-4">
+                            <div class="last-blog-cart-content">
+                                <div class="last-blog-cart-info">
+                                    <span class="last-blog-cart-info-comment">
+                                    <svg style="margin-left:5px;" width="20px" height="20px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path opacity="0.34" d="M5 10H7C9 10 10 9 10 7V5C10 3 9 2 7 2H5C3 2 2 3 2 5V7C2 9 3 10 5 10Z" stroke="#292D32" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/><path d="M17 10H19C21 10 22 9 22 7V5C22 3 21 2 19 2H17C15 2 14 3 14 5V7C14 9 15 10 17 10Z" stroke="#292D32" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/><path opacity="0.34" d="M17 22H19C21 22 22 21 22 19V17C22 15 21 14 19 14H17C15 14 14 15 14 17V19C14 21 15 22 17 22Z" stroke="#292D32" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/><path d="M5 22H7C9 22 10 21 10 19V17C10 15 9 14 7 14H5C3 14 2 15 2 17V19C2 21 3 22 5 22Z" stroke="#292D32" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                                    <?php echo $terms?>
+                                    </span>
+                                    <span class="last-blog-cart-info-date">
+                                        <svg style="margin-left:5px;" width="20px" height="20px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2 12C2 8.22876 2 6.34315 3.17157 5.17157C4.34315 4 6.22876 4 10 4H14C17.7712 4 19.6569 4 20.8284 5.17157C22 6.34315 22 8.22876 22 12V14C22 17.7712 22 19.6569 20.8284 20.8284C19.6569 22 17.7712 22 14 22H10C6.22876 22 4.34315 22 3.17157 20.8284C2 19.6569 2 17.7712 2 14V12Z" stroke="#1C274C" stroke-width="1.5"/><path opacity="0.5" d="M7 4V2.5" stroke="#1C274C" stroke-width="1.5" stroke-linecap="round"/><path opacity="0.5" d="M17 4V2.5" stroke="#1C274C" stroke-width="1.5" stroke-linecap="round"/><path opacity="0.5" d="M2.5 9H21.5" stroke="#1C274C" stroke-width="1.5" stroke-linecap="round"/><path d="M18 17C18 17.5523 17.5523 18 17 18C16.4477 18 16 17.5523 16 17C16 16.4477 16.4477 16 17 16C17.5523 16 18 16.4477 18 17Z" fill="#1C274C"/><path d="M18 13C18 13.5523 17.5523 14 17 14C16.4477 14 16 13.5523 16 13C16 12.4477 16.4477 12 17 12C17.5523 12 18 12.4477 18 13Z" fill="#1C274C"/><path d="M13 17C13 17.5523 12.5523 18 12 18C11.4477 18 11 17.5523 11 17C11 16.4477 11.4477 16 12 16C12.5523 16 13 16.4477 13 17Z" fill="#1C274C"/><path d="M13 13C13 13.5523 12.5523 14 12 14C11.4477 14 11 13.5523 11 13C11 12.4477 11.4477 12 12 12C12.5523 12 13 12.4477 13 13Z" fill="#1C274C"/><path d="M8 17C8 17.5523 7.55228 18 7 18C6.44772 18 6 17.5523 6 17C6 16.4477 6.44772 16 7 16C7.55228 16 8 16.4477 8 17Z" fill="#1C274C"/><path d="M8 13C8 13.5523 7.55228 14 7 14C6.44772 14 6 13.5523 6 13C6 12.4477 6.44772 12 7 12C7.55228 12 8 12.4477 8 13Z" fill="#1C274C"/></svg>
+                                        <?php echo $postDate?>
+                                    </span>
+                                </div>
+                                <a href="<?php echo $postLink?>">
+                                    <div class="last-blog-cart-img my-3 ">
+                                        <img src="<?php echo $thumbnails?>" alt="">
+                                    </div>
+                                </a>
+                                <div class="last-blog-cart-titlexpert">
+                                    <a href="#">
+                                        <h4 class="last-blog-cart-title"><?php echo $postTitle?></h4>
+                                    </a>
+                                </div>
+
+                                <div class="detail-btn-block">
+                                    <a href="<?php echo $postLink?>" class="detail-btn-link">
+                                        مشاهده جزئیات  
+                                    </a>
+                                </div>
+
+                                </div>
+                            
+                        </div>
+                        <?php
+                        
+                    }
+                }else{
+                    ?>
+                    <div class="posts-blog row container d-flex justify-content-center">
+
+
+                    <img src="https://topigo.baitimo.ir/wp-content/themes/topigo/assets/img/Navigation.svg" alt="نتیجه ای یافت نشد" class=" col-md-6">
+                                <h2 class="text-center" style="color:#4f6672;">
+                        متأسفانه نتیجه محتوایی که به دنبال آن میگردید یافت نشد!    </h2>
+
+
+                    <div class="pagination text-center">
+                    </div>
+
+
+
+                        </div>
+                    <?php
+                }
+                ?>
+                <div class="d-flex align-items-center justify-content-center">
+                    <a href="<?php echo get_option( "portfolioPageLink" , "" )?>">
+                        <button> بیشتر ....</button>
+                    </a>
+                </div>
+        </div>
+        </div>
+
 
     </main>
 <?php

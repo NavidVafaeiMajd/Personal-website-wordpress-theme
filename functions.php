@@ -128,34 +128,38 @@ function custom_override_checkout_fields( $fields ) {
 add_shortcode('woo_cart_shortcode' , 'cart_shortcode_callback');
 
 function cart_shortcode_callback(){
-    $totalCartPrice = WC()->cart->cart_contents_total;
-    $totalCartCount = WC()->cart->cart_contents_count;
-    $cartUrl = wc_get_cart_url();
+    if (class_exists('WooCommerce')) {
+        $totalCartPrice = WC()->cart->cart_contents_total;
+        $totalCartCount = WC()->cart->cart_contents_count;
+        $cartUrl = wc_get_cart_url();
+    
+        if($totalCartCount!=0){
+            echo(   '<a href="'.$cartUrl.'">
+            <svg width="30px" height="30px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M2 3L2.26491 3.0883C3.58495 3.52832 4.24497 3.74832 4.62248 4.2721C5 4.79587 5 5.49159 5 6.88304V9.5C5 12.3284 5 13.7426 5.87868 14.6213C6.75736 15.5 8.17157 15.5 11 15.5H19" stroke="#1C274C" stroke-width="1.5" stroke-linecap="round"/>
+                <path opacity="0.5" d="M7.5 18C8.32843 18 9 18.6716 9 19.5C9 20.3284 8.32843 21 7.5 21C6.67157 21 6 20.3284 6 19.5C6 18.6716 6.67157 18 7.5 18Z" stroke="#1C274C" stroke-width="1.5"/>
+                <path opacity="0.5" d="M16.5 18.0001C17.3284 18.0001 18 18.6716 18 19.5001C18 20.3285 17.3284 21.0001 16.5 21.0001C15.6716 21.0001 15 20.3285 15 19.5001C15 18.6716 15.6716 18.0001 16.5 18.0001Z" stroke="#1C274C" stroke-width="1.5"/>
+                <path d="M5 6H16.4504C18.5054 6 19.5328 6 19.9775 6.67426C20.4221 7.34853 20.0173 8.29294 19.2078 10.1818L18.7792 11.1818C18.4013 12.0636 18.2123 12.5045 17.8366 12.7523C17.4609 13 16.9812 13 16.0218 13H5" stroke="#1C274C" stroke-width="1.5"/>
+            </svg>
+            <span>
+                '.$totalCartPrice.' تومان
+            </span>
+            <span id="cart-count-icon">
+                '.$totalCartCount.'
+            </span>
+        </a>'
+        );
+        }else{
+            ?>
+            <script>
+                $('#cart-icon-btn').hide();
+            </script>
+            <?php
+        }
+    ;
+     } else { 
 
-    if($totalCartCount!=0){
-        echo(   '<a href="'.$cartUrl.'">
-        <svg width="30px" height="30px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M2 3L2.26491 3.0883C3.58495 3.52832 4.24497 3.74832 4.62248 4.2721C5 4.79587 5 5.49159 5 6.88304V9.5C5 12.3284 5 13.7426 5.87868 14.6213C6.75736 15.5 8.17157 15.5 11 15.5H19" stroke="#1C274C" stroke-width="1.5" stroke-linecap="round"/>
-            <path opacity="0.5" d="M7.5 18C8.32843 18 9 18.6716 9 19.5C9 20.3284 8.32843 21 7.5 21C6.67157 21 6 20.3284 6 19.5C6 18.6716 6.67157 18 7.5 18Z" stroke="#1C274C" stroke-width="1.5"/>
-            <path opacity="0.5" d="M16.5 18.0001C17.3284 18.0001 18 18.6716 18 19.5001C18 20.3285 17.3284 21.0001 16.5 21.0001C15.6716 21.0001 15 20.3285 15 19.5001C15 18.6716 15.6716 18.0001 16.5 18.0001Z" stroke="#1C274C" stroke-width="1.5"/>
-            <path d="M5 6H16.4504C18.5054 6 19.5328 6 19.9775 6.67426C20.4221 7.34853 20.0173 8.29294 19.2078 10.1818L18.7792 11.1818C18.4013 12.0636 18.2123 12.5045 17.8366 12.7523C17.4609 13 16.9812 13 16.0218 13H5" stroke="#1C274C" stroke-width="1.5"/>
-        </svg>
-        <span>
-            '.$totalCartPrice.' تومان
-        </span>
-        <span id="cart-count-icon">
-            '.$totalCartCount.'
-        </span>
-    </a>'
-    );
-    }else{
-        ?>
-        <script>
-            $('#cart-icon-btn').hide();
-        </script>
-        <?php
     }
-;
 }
 
 // custome my account page
@@ -524,5 +528,69 @@ function personal_personal_reg(){
 
 
 ////////////////////////////////////////////////////
+
+add_action('admin_menu', 'theme_setting_menu_bar');
+
+function theme_setting_menu_bar() {
+    add_menu_page( "تنظیمات قالب" , " تنظیمات قالب", "manage_options", "theme_setting","theme_setting_callback",  false); 
+    function theme_setting_callback(){
+        include ("admin\mainAdmin.php");
+    }
+}
+
+add_action("init", "theme_setting_menu_bar_form");
+function theme_setting_menu_bar_form(){
+if(isset($_POST['submit_admin'])){
+    $githublink = isset($_POST['githublink'])?$_POST['githublink']:get_option( "githublink" , "" );
+    update_option("githublink", $githublink );
+    $instalink = isset($_POST['instalink'])?$_POST['instalink']:get_option( "instalink" , "" );
+    update_option("instalink", $instalink );
+    $linkinLink = isset($_POST['linkinLink'])?$_POST['linkinLink']:get_option( "linkinLink" , "" );
+    update_option("linkinLink", $linkinLink );
+    $portfolioPageLink = isset($_POST['portfolioPageLink'])?$_POST['portfolioPageLink']:get_option( "portfolioPageLink" , "" );
+    update_option("portfolioPageLink", $portfolioPageLink );
+    $blogPageLink = isset($_POST['blogPageLink'])?$_POST['blogPageLink']:get_option( "blogPageLink" , "" );
+    update_option("blogPageLink", $blogPageLink );
+
+   
+
+    
+    if(isset($_FILES['fileToUpload']) && $_FILES['fileToUpload']['error'] == UPLOAD_ERR_OK) {
+        $upload = wp_upload_bits($_FILES['fileToUpload']['name'], null, file_get_contents($_FILES['fileToUpload']['tmp_name']));
+    
+        if(!$upload['error']) {
+            $filename = $upload['file'];
+            $filetype = wp_check_filetype($filename, null);
+            $wp_upload_dir = wp_upload_dir();
+            $attachment = array(
+                'guid' => $wp_upload_dir['url'] . '/' . basename($filename), 
+                'post_mime_type' => $filetype['type'],
+                'post_title' => sanitize_file_name(basename($filename)),
+                'post_content' => '',
+                'post_status' => 'inherit'
+            );
+    
+            $attach_id = wp_insert_attachment($attachment, $filename);
+            require_once(ABSPATH . 'wp-admin/includes/image.php');
+    
+            $attach_data = wp_generate_attachment_metadata($attach_id, $filename);
+            wp_update_attachment_metadata($attach_id, $attach_data);
+            
+            update_option("personal_theme_logo", $attach_id);
+            echo "The file has been uploaded successfully! Attachment ID: " . $attach_id;
+        } else {
+            echo "Upload error: " . $upload['error'];
+        }
+    } else {
+        echo "No file was uploaded or there was an upload error.";
+    }
+}
+
+    
+
+
+
+}
+
 
 ?>
