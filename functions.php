@@ -540,7 +540,10 @@ function theme_setting_menu_bar() {
 
 add_action("init", "theme_setting_menu_bar_form");
 function theme_setting_menu_bar_form(){
+<<<<<<< HEAD
 if(isset($_POST['submit_admin'])){
+=======
+>>>>>>> f281d9f8888a521930497b677350870181d698dd
     $githublink = isset($_POST['githublink'])?$_POST['githublink']:get_option( "githublink" , "" );
     update_option("githublink", $githublink );
     $instalink = isset($_POST['instalink'])?$_POST['instalink']:get_option( "instalink" , "" );
@@ -552,6 +555,7 @@ if(isset($_POST['submit_admin'])){
     $blogPageLink = isset($_POST['blogPageLink'])?$_POST['blogPageLink']:get_option( "blogPageLink" , "" );
     update_option("blogPageLink", $blogPageLink );
 
+<<<<<<< HEAD
    
 
     
@@ -590,6 +594,8 @@ if(isset($_POST['submit_admin'])){
 
 
 
+=======
+>>>>>>> f281d9f8888a521930497b677350870181d698dd
 }
 
 

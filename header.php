@@ -6,6 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+<<<<<<< HEAD
     <link rel="icon" type="image/x-icon" href="
     <?php
     $attachment_id = get_option('personal_theme_logo'); 
@@ -15,6 +16,9 @@
     }
     ?>
 ">
+=======
+    <link rel="icon" type="image/x-icon" href="<?php echo get_site_icon_url()?>">
+>>>>>>> f281d9f8888a521930497b677350870181d698dd
     <link rel="stylesheet" href="<?php echo TD?>/asset/css/main-css.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <?php
