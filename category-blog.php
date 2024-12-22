@@ -19,7 +19,7 @@ $taxonomy = get_queried_object();
         <nav aria-label="breadcrumb" >
             <ol class="breadcrumb">
                 <li class="breadcrumb-item">
-                <a href="">
+                <a href="<?php echo get_home_url();?>">
                      خانه /  
                 </a>
                 </li>

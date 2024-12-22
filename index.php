@@ -3,6 +3,7 @@ if(!defined('ABSPATH')){
     wp_die();
 }
 
+/* Template Name: صفحه اصلی */
 $stylePlaceHolder = TD . '/asset/css/home.css';
 include 'header.php';
 ?>
@@ -23,18 +24,16 @@ include 'header.php';
                     </h1>
                     <div>
                         <button>درباره ما</button>
-                        <button id="secondary-btn">نمونه کار ها</button>
+                        <a href="<?php echo get_option( "portfolioPageLink" , "" )?>">
+                            <button id="secondary-btn">نمونه کار ها</button>
+                        </a>
                     </div>
                 </div>
             </div>
             <div class="sochial-icon">
-                <a href="" class="sochial-icon-tel">
-                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M18.6357 15.6701L20.3521 10.5208C21.8516 6.02242 22.6013 3.77322 21.414 2.58595C20.2268 1.39869 17.9776 2.14842 13.4792 3.64788L8.32987 5.36432C4.69923 6.57453 2.88392 7.17964 2.36806 8.06698C1.87731 8.91112 1.87731 9.95369 2.36806 10.7978C2.88392 11.6852 4.69923 12.2903 8.32987 13.5005C8.91282 13.6948 9.2043 13.792 9.44793 13.9551C9.68404 14.1131 9.88687 14.316 10.0449 14.5521C10.208 14.7957 10.3052 15.0872 10.4995 15.6701C11.7097 19.3008 12.3148 21.1161 13.2022 21.6319C14.0463 22.1227 15.0889 22.1227 15.933 21.6319C16.8204 21.1161 17.4255 19.3008 18.6357 15.6701Z" />
-                    <path opacity="0.5" d="M17.7894 6.21088L13.5789 10.375" stroke="#1C274C" stroke-width="1.5" stroke-linecap="round"/>
-                    </svg>
-                </a>
-                <a href="" class="sochial-icon-linkedin">
+                <a href="<?php echo get_option( "githublink" , "" )?>" class="sochial-icon-tel">
+                <svg width="800px" height="800px" viewBox="0 0 48 48" version="1.1" id="Shopicons" xmlns="http://www.w3.org/2000/svg" x="0" y="0" xml:space="preserve"><style>.st1{fill:#fff}.st2,.st3{fill:none;stroke:#666;stroke-width:4;stroke-miterlimit:10}.st3{stroke-width:6}</style><g id="github_00000178918564504449926280000008731996709616696990_"><path d="M0 .011h48v48H0v-48z" fill="none"/><path d="M30 44.004v-10c0-.884-.197-1.722-.542-2.479.825-.167 1.65-.358 2.472-.601 2.527-.746 6.154-3.839 7.226-6.863 1.188-3.356 1.188-6.76 0-10.116l-.001-.001c-.213-.603-.537-1.211-.998-1.868.848-3.154.253-5.792.225-5.915l-.365-1.564-1.606.019c-.15.002-3.48.063-6.724 1.955a29.635 29.635 0 0 0-11.371 0c-3.243-1.892-6.573-1.953-6.724-1.955l-1.608-.019-.365 1.564c-.028.123-.623 2.761.225 5.915-.461.657-.785 1.266-.999 1.869-1.187 3.356-1.187 6.76.001 10.117 1.07 3.023 4.697 6.116 7.225 6.862.822.243 1.647.434 2.472.601A5.946 5.946 0 0 0 18 34.004v1.281c-.062.036-.127.065-.187.108-.289.211-2.869 1.967-5.505.09-.93-.946-1.386-1.639-1.826-2.309-.988-1.5-1.841-2.586-4.588-3.96a2 2 0 1 0-1.789 3.579c1.991.995 2.341 1.525 3.035 2.581.515.781 1.155 1.754 2.445 3.044l.215.186c1.692 1.27 3.447 1.723 5.053 1.723A9.286 9.286 0 0 0 18 39.76v4.253l12-.009z"/></g></svg>                </a>
+                <a href="<?php echo get_option( "linkinLink" , "" )?>" class="sochial-icon-linkedin">
                 <svg fill="#000000" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 555.347 555.347" xml:space="preserve"><g><path d="M118.656,0.117c-4.896-0.612-9.18,1.224-11.628,4.284C80.712,2.565,56.232,21.538,48.276,50.914
                     c-10.404,37.944,23.868,77.724,62.424,75.888c31.212-1.836,57.528-28.152,64.872-57.528C183.528,31.33,154.152,3.177,118.656,0.117
                     z"/><path d="M155.376,189.837c0-4.896-3.06-7.344-6.732-7.956c-1.224-6.12-6.12-11.016-13.464-10.404
@@ -53,7 +52,7 @@ include 'header.php';
                     c3.672,0.612,7.345,0,11.017-1.836c0.611,1.224,1.224,2.448,2.447,4.284c-8.567,0-16.523,0.611-25.092,0.611
                     C433.225,509.913,433.225,508.689,433.225,507.466z"/></g></svg>
                 </a>
-                <a href="" class="sochial-icon-insg">
+                <a href="<?php echo get_option( "instalink" , "")?>" class="sochial-icon-insg">
                     <svg width="800px" height="800px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                         <g>
                             <path fill="none" d="M0 0h24v24H0z"/>
@@ -303,6 +302,7 @@ include 'header.php';
                             
                         </div>
                         <?php
+                        
                     }
                 }else{
                     ?>
@@ -323,7 +323,11 @@ include 'header.php';
                     <?php
                 }
                 ?>
-                
+                <div class="d-flex align-items-center justify-content-center">
+                    <a href="<?php echo get_option( "portfolioPageLink" , "" )?>">
+                        <button> بیشتر ....</button>
+                    </a>
+                </div>
         </div>
         </div>
 

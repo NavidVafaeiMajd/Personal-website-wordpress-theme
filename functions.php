@@ -540,12 +540,16 @@ function theme_setting_menu_bar() {
 
 add_action("init", "theme_setting_menu_bar_form");
 function theme_setting_menu_bar_form(){
-    $bexan = isset($_POST['bexan'])?sanitize_text_field($_POST['bexan']):0;
-    ?>
-    <script>
-    console.log("<?php     echo $bexan;
- ?>")
-    </script><?php
+    $githublink = isset($_POST['githublink'])?$_POST['githublink']:get_option( "githublink" , "" );
+    update_option("githublink", $githublink );
+    $instalink = isset($_POST['instalink'])?$_POST['instalink']:get_option( "instalink" , "" );
+    update_option("instalink", $instalink );
+    $linkinLink = isset($_POST['linkinLink'])?$_POST['linkinLink']:get_option( "linkinLink" , "" );
+    update_option("linkinLink", $linkinLink );
+    $portfolioPageLink = isset($_POST['portfolioPageLink'])?$_POST['portfolioPageLink']:get_option( "portfolioPageLink" , "" );
+    update_option("portfolioPageLink", $portfolioPageLink );
+    $blogPageLink = isset($_POST['blogPageLink'])?$_POST['blogPageLink']:get_option( "blogPageLink" , "" );
+    update_option("blogPageLink", $blogPageLink );
 
 }
 
