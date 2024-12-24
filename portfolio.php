@@ -33,7 +33,7 @@ $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
                 </a>
                 </li>
                 <li class="" aria-current="page">
-                    بلاگ
+                    نمونه کار ها
                 </li>
             </ol>
             <button id="btn-previous-page" onclick="history.back();" class="btn-previous-page">

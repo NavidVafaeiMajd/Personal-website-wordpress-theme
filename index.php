@@ -240,11 +240,7 @@ include 'header.php';
         </div>
         <div class="fifth-sec container" style="margin-top: 100px; margin-bottom: 170px;">
             <div class="special-title" style="text-align: center;">
-<<<<<<< HEAD
                 <h1>آخرین نمونه کار ها</h1>
-=======
-                <h1>آخرین مطالب</h1>
->>>>>>> f281d9f8888a521930497b677350870181d698dd
                 <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ</p>
             </div>
             <div class="archive-blog-posts row g-3 my-3">
