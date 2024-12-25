@@ -163,7 +163,7 @@ include 'header.php';
         <div class="forth-sec container" style="margin-top: 100px; margin-bottom: 170px;">
             <div class="special-title" style="text-align: center;">
                 <h1>آخرین مطالب</h1>
-                <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ</p>
+                <p> اخرین مقالات را از اینجا ببنید </p>
             </div>
             <div class="last-blog row g-3">
                 <?php
@@ -241,7 +241,7 @@ include 'header.php';
         <div class="fifth-sec container" style="margin-top: 100px; margin-bottom: 170px;">
             <div class="special-title" style="text-align: center;">
                 <h1>آخرین نمونه کار ها</h1>
-                <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ</p>
+                <p> اخرین نمونه کار ها را از اینجا ببنید </p>
             </div>
             <div class="archive-blog-posts row g-3 my-3">
                 <?php
