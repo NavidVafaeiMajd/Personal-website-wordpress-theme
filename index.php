@@ -17,13 +17,15 @@ include 'header.php';
                     نوید
                 </div>
                 <div class="first-sec-content-box">
-                    <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ</p>
+                    <p>   <?php echo get_bloginfo('description');?> </p>
                     <h1> 
                     سلام من <b>نویدم</b> ، برنامه نویس
 
                     </h1>
                     <div>
-                        <button>درباره ما</button>
+                        <a href="#secound-sec-content-right">
+                            <button>درباره ما</button>
+                        </a>
                         <a href="<?php echo get_option( "portfolioPageLink" , "" )?>">
                             <button id="secondary-btn">نمونه کار ها</button>
                         </a>
@@ -64,16 +66,15 @@ include 'header.php';
 
         </div>
         <div class="secound-sec container" style="margin-top: 100px; margin-bottom: 170px;">
-            <div class="secound-sec-content d-md-flex align-items-center justify-content-center">
-                <div class="secound-sec-content-right w-md-50 ">
+            <div class="secound-sec-content d-md-flex align-items-center justify-content-between">
+                <div id="secound-sec-content-right" class="secound-sec-content-right  " style="max-width:70%;">
                     <h1>درباره من چی میدونی؟
                     </h1>
                     <p>
-                    لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد
+                    <?php echo get_option( "descriptionOfHome" , "" )?>    
                     </p>
-                    <button>بیشتر</button>
                 </div>
-                <div class="secound-sec-content-left" width="50%">
+                <div class="secound-sec-content-left" style="max-width:30%;">
                     <img width="380px" src="<?php echo TD?>/asset/img/0575885668.png" alt="">
                 </div>
             </div>

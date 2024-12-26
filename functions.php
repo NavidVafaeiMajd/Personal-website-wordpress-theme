@@ -551,6 +551,9 @@ if(isset($_POST['submit_admin'])){
     update_option("portfolioPageLink", $portfolioPageLink );
     $blogPageLink = isset($_POST['blogPageLink'])?$_POST['blogPageLink']:get_option( "blogPageLink" , "" );
     update_option("blogPageLink", $blogPageLink );
+    $descriptionOfHome = isset($_POST['descriptionOfHome'])?$_POST['descriptionOfHome']:get_option( "descriptionOfHome" , "" );
+    update_option("descriptionOfHome", $descriptionOfHome );
+
 
    
 
