@@ -82,80 +82,66 @@ include 'header.php';
         <div class="third-sec container" style="margin-top: 100px; margin-bottom: 170px;">
             <div class="special-title" style="text-align: center;">
                 <h1>سرویس ها و خدمات</h1>
-                <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ</p>
             </div>
-            <div class="third-sec-service d-md-flex">
-                <div class="third-sec-service-item ">
+            <div class="third-sec-service d-md-flex justify-content-center">
+                <div class="third-sec-service-item " style="min-width:30%;">
                     <div class="third-sec-service-item-img d-flex justify-content-center" style="padding:18px;">
                         <img width="109px" src="<?php echo TD?>/asset/img/services-img-01.png" alt="">
                     </div>
                     <div class="third-sec-service-item-title">
-                        <h4>طراحی محصول</h4>
+                        <h4> PHP </h4>
                     </div>
-                    <div class="third-sec-service-item-expert" style="padding:18px;">
-                    لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ
-                    </div>
+
                 </div>
-                <div class="third-sec-service-item ">
+                <div class="third-sec-service-item " style="min-width:30%;">
                     <div class="third-sec-service-item-img d-flex justify-content-center" style="padding:18px;">
                         <img width="109px" src="<?php echo TD?>/asset/img/services-img-02.png" alt="">
                     </div>
                     <div class="third-sec-service-item-title">
-                        <h4>لینکوس و ویندوز</h4>
-                    </div>
-                    <div class="third-sec-service-item-expert" style="padding:18px;">
-                    لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ
+                        <h4> JAVASCRIPT </h4>
                     </div>
                 </div>
 
-                <div class="third-sec-service-item ">
+                <div class="third-sec-service-item " style="min-width:30%;">
                     <div class="third-sec-service-item-img d-flex justify-content-center" style="padding:18px;">
                         <img width="109px" src="<?php echo TD?>/asset/img/services-img-04.png" alt="">
                     </div>
                     <div class="third-sec-service-item-title">
-                        <h4>طراحی وبسایت</h4>
+                        <h4> WORDPRESS </h4>
                     </div>
-                    <div class="third-sec-service-item-expert" style="padding:18px;">
-                    لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ
-                    </div>
+
                 </div>
 
 
             </div>
-            <div class="third-sec-service d-md-flex">
-                <div class="third-sec-service-item ">
+            <div class="third-sec-service d-md-flex justify-content-center">
+                <div class="third-sec-service-item " style="min-width:30%;">
                     <div class="third-sec-service-item-img d-flex justify-content-center" style="padding:18px;">
                         <img width="109px" src="<?php echo TD?>/asset/img/services-img-05.png" alt="">
                     </div>
                     <div class="third-sec-service-item-title">
-                        <h4>هوش مصنوعی</h4>
+                        <h4> JQUERY </h4>
                     </div>
-                    <div class="third-sec-service-item-expert" style="padding:18px;">
-                    لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ
-                    </div>
+
                 </div>
-                <div class="third-sec-service-item ">
+                <div class="third-sec-service-item " style="min-width:30%;">
                     <div class="third-sec-service-item-img d-flex justify-content-center" style="padding:18px;">
                         <img width="109px" src="<?php echo TD?>/asset/img/services-img-03.png" alt="">
                     </div>
                     <div class="third-sec-service-item-title">
-                        <h4>لینکوس و ویندوز</h4>
+                        <h4>HTML & CSS</h4>
                     </div>
-                    <div class="third-sec-service-item-expert" style="padding:18px;">
-                    لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ
-                    </div>
+
                 </div>
 
-                <div class="third-sec-service-item ">
+                <div class="third-sec-service-item " style="min-width:30%;">
                     <div class="third-sec-service-item-img d-flex justify-content-center" style="padding:18px;">
                         <img width="109px" src="<?php echo TD?>/asset/img/services-img-06.png" alt="">
                     </div>
                     <div class="third-sec-service-item-title">
-                        <h4>طراحی وبسایت</h4>
+                        <h4>SQL</h4>
                     </div>
-                    <div class="third-sec-service-item-expert" style="padding:18px;">
-                    لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ
-                    </div>
+
                 </div>
 
 
