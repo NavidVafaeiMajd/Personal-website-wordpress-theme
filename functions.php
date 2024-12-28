@@ -589,11 +589,27 @@ if(isset($_POST['submit_admin'])){
     }
 }
 
-    
-
-
-
 }
+
+///////////////////////////////////////
+
+function change_my_wp_login_image() {
+    $attachment_id = get_option('personal_theme_logo'); 
+    $image_attributes = wp_get_attachment_image_src($attachment_id, 'full');
+    echo "
+        <style>
+            body.login #login h1 a {
+                background: url('".$image_attributes[0]."') 8px 0 no-repeat transparent;
+                background-position: center;
+                background-size: cover;
+
+            }
+        </style>
+    ";
+}
+add_action("login_head", "change_my_wp_login_image");
+
+/////////////////////////////////////////////////////
 
 
 ?>
