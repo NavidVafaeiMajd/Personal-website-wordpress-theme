@@ -66,16 +66,16 @@ include 'header.php';
 
         </div>
         <div class="secound-sec container" style="margin-top: 100px; margin-bottom: 170px;">
-            <div class="secound-sec-content d-md-flex align-items-center justify-content-between">
-                <div id="secound-sec-content-right" class="secound-sec-content-right  " style="max-width:70%;">
+            <div class="secound-sec-content row">
+                <div id="secound-sec-content-right" class="secound-sec-content-right col-md-8 " >
                     <h1>درباره من چی میدونی؟
                     </h1>
                     <p>
                     <?php echo get_option( "descriptionOfHome" , "" )?>    
                     </p>
                 </div>
-                <div class="secound-sec-content-left" style="max-width:30%;">
-                    <img width="380px" src="<?php echo TD?>/asset/img/0575885668.png" alt="">
+                <div class="secound-sec-content-left col-md-4" >
+                    <img width="380px" src="<?php echo TD?>/asset/img/questions-animate.svg" alt="">
                 </div>
             </div>
         </div>
